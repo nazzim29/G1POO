@@ -160,7 +160,7 @@ namespace Gestionpoo {
 			// 
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
+			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"left_arrow")));
 			this->button7->Location = System::Drawing::Point(142, 12);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(45, 42);
