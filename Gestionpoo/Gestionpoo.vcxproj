@@ -130,6 +130,12 @@
       <DependentUpon>Main.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\icon pack\arow_right.png" />
+    <Image Include="..\..\..\..\Desktop\icon pack\minimize.png" />
+    <Image Include="minimize.png" />
+    <Image Include="right_arrow.bmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

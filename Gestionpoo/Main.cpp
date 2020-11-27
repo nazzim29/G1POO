@@ -10,3 +10,55 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Application::Run(gcnew Main());
 	return 0;
 }
+
+System::Void Gestionpoo::Main::button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
+	if (panel1->Size == System::Drawing::Size(200, 529)) {
+
+		this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"right_arrow")));
+		this->panel1->Size = System::Drawing::Size(88, 529);
+	}
+	else {
+		this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"left_arrow")));
+		this->panel1->Size = System::Drawing::Size(200, 529);
+	}
+}
+System::Void Gestionpoo::Main::button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+System::Void Main::button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+}
+
+System::Void Gestionpoo::Main::button8_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
+	if (this->WindowState == System::Windows::Forms::FormWindowState::Normal) {
+		this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+		this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"minimize")));
+	}
+	else {
+		this->WindowState = System::Windows::Forms::FormWindowState::Normal;
+		this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"maximize")));
+	}
+}
+
+System::Void Gestionpoo::Main::button1_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}
+
+System::Void Gestionpoo::Main::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}
+
+System::Void Gestionpoo::Main::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}
+
+System::Void Gestionpoo::Main::button4_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}

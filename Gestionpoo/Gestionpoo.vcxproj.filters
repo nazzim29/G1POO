@@ -24,4 +24,18 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="right_arrow.bmp">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="minimize.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\icon pack\minimize.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\icon pack\arow_right.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
