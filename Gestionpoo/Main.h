@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Listepersonne.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -34,6 +34,7 @@ namespace Gestionpoo {
 				delete components;
 			}
 		}
+	private: Listepersonne^ lstpersonne = gcnew Listepersonne;
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: System::Windows::Forms::Button^ button4;
@@ -45,6 +46,8 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Panel^ panel3;
 
 	private:
 		/// <summary>
@@ -61,6 +64,8 @@ namespace Gestionpoo {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -69,12 +74,13 @@ namespace Gestionpoo {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->button9);
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->button4);
@@ -87,12 +93,35 @@ namespace Gestionpoo {
 			this->panel1->Size = System::Drawing::Size(200, 529);
 			this->panel1->TabIndex = 0;
 			// 
+			// button9
+			// 
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button9->Location = System::Drawing::Point(10, 356);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(270, 54);
+			this->button9->TabIndex = 6;
+			this->button9->Text = L"Commande";
+			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &Main::button9_Click);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::Red;
+			this->panel2->Location = System::Drawing::Point(-17, 105);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(24, 57);
+			this->panel2->TabIndex = 4;
+			this->panel2->Visible = false;
+			// 
 			// button7
 			// 
 			this->button7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject("left_arrow")));
+			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"left_arrow")));
 			this->button7->Location = System::Drawing::Point(152, 3);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(45, 42);
@@ -106,7 +135,7 @@ namespace Gestionpoo {
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button4->Location = System::Drawing::Point(10, 307);
+			this->button4->Location = System::Drawing::Point(10, 296);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(270, 54);
 			this->button4->TabIndex = 4;
@@ -122,7 +151,7 @@ namespace Gestionpoo {
 			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button3->Location = System::Drawing::Point(10, 232);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(270, 69);
+			this->button3->Size = System::Drawing::Size(270, 58);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Stock";
 			this->button3->UseVisualStyleBackColor = true;
@@ -187,7 +216,7 @@ namespace Gestionpoo {
 			this->button8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button8->FlatAppearance->BorderSize = 0;
 			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject("maximize")));
+			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"maximize")));
 			this->button8->Location = System::Drawing::Point(1141, 12);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(57, 52);
@@ -195,14 +224,12 @@ namespace Gestionpoo {
 			this->button8->UseVisualStyleBackColor = true;
 			this->button8->Click += gcnew System::EventHandler(this, &Main::button8_Click);
 			// 
-			// panel2
+			// panel3
 			// 
-			this->panel2->BackColor = System::Drawing::Color::Red;
-			this->panel2->Location = System::Drawing::Point(-17, 105);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(24, 57);
-			this->panel2->TabIndex = 4;
-			this->panel2->Visible = false;
+			this->panel3->Location = System::Drawing::Point(206, 72);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(1054, 457);
+			this->panel3->TabIndex = 4;
 			// 
 			// Main
 			// 
@@ -210,6 +237,7 @@ namespace Gestionpoo {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->ClientSize = System::Drawing::Size(1261, 529);
+			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
@@ -234,5 +262,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

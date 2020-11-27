@@ -118,14 +118,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Listepersonne.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Listepersonne.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Listepersonne.resx">
+      <DependentUpon>Listepersonne.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>
     </EmbeddedResource>

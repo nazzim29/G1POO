@@ -45,20 +45,32 @@ System::Void Gestionpoo::Main::button8_Click(System::Object^ sender, System::Eve
 
 System::Void Gestionpoo::Main::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	this->panel2->Visible = true;
+	this->panel2->Top = button1->Top;
+	this->panel3->Controls->Add(lstpersonne);
+	lstpersonne->Show();
 }
 
 System::Void Gestionpoo::Main::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	this->panel2->Visible = true;
+	this->panel2->Top = button2->Top;
 }
 
 System::Void Gestionpoo::Main::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	this->panel2->Visible = true;
+	this->panel2->Top = button3->Top;
 }
 
 System::Void Gestionpoo::Main::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	this->panel2->Visible = true;
+	this->panel2->Top = button4->Top;
+}
+
+System::Void Gestionpoo::Main::button9_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	this->panel2->Visible = true;
+	this->panel2->Top = button9->Top;
 }
