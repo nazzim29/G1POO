@@ -47,8 +47,15 @@ System::Void Gestionpoo::Main::button1_Click(System::Object^ sender, System::Eve
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button1->Top;
-	this->panel3->Controls->Add(lstpersonne);
-	lstpersonne->Show();
+	if (panel3->Controls->Contains(lstpersonne)) {
+		lstpersonne->BringToFront();
+	}
+	else {
+		this->panel3->Controls->Add(lstpersonne);
+		lstpersonne->Dock = DockStyle::Fill;
+		lstpersonne->BringToFront();
+	}
+
 }
 
 System::Void Gestionpoo::Main::button2_Click(System::Object^ sender, System::EventArgs^ e)

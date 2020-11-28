@@ -12,7 +12,7 @@ namespace Gestionpoo {
 	/// <summary>
 	/// Description résumée de Listepersonne
 	/// </summary>
-	public ref class Listepersonne : public System::Windows::Forms::Form
+	public ref class Listepersonne : public System::Windows::Forms::UserControl
 	{
 	public:
 		Listepersonne(void)
@@ -118,7 +118,6 @@ namespace Gestionpoo {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1054, 457);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
@@ -126,14 +125,15 @@ namespace Gestionpoo {
 			this->Controls->Add(this->button1);
 			this->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Listepersonne";
-			this->Text = L"Listepersonne";
+			this->Size = System::Drawing::Size(1054, 457);
+			this->Load += gcnew System::EventHandler(this, &Listepersonne::Listepersonne_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+	private: System::Void Listepersonne_Load(System::Object^ sender, System::EventArgs^ e);
+};
 }
