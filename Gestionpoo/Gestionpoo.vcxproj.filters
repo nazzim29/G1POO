@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{520b6833-bf27-4a78-bbfa-8da91f326524}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,20 +27,23 @@
     <ClCompile Include="ListeStock.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Produit.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Commande.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Personne.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Personnel.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Addr.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Commande.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Personne.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Personnel.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Produit.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,20 +56,23 @@
     <ClInclude Include="ListeStock.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Produit.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Commande.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Personne.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Personnel.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Addr.h">
+      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Commande.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Personne.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Personnel.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Produit.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

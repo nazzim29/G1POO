@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Addr.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Listepersonne.cpp" />
@@ -128,6 +129,7 @@
     <ClCompile Include="Produit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Addr.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Listepersonne.h">
