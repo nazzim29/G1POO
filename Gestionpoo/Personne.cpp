@@ -1,21 +1,20 @@
 #include "Personne.h"
 
-System::String Personne::Getnom()
+System::String^ Personne::Getnom()
 {
-    
+    return "";
 }
 
-void Personne::Setnom(System::String nom)
+void Personne::Setnom(System::String^ nom)
 {
-    throw gcnew System::NotImplementedException();
 }
 
-System::String Personne::Getprenom()
+System::String^ Personne::Getprenom()
 {
-    
+    return "";
 }
 
-void Personne::Setprenom(System::String prenom)
+void Personne::Setprenom(System::String^ prenom)
 {
    
 }
@@ -30,7 +29,7 @@ void Personne::Setid(int id)
     
 }
 
-Personne::Personne(System::String nom, System::String prenom, int id)
+Personne::Personne(System::String^ nom, System::String^ prenom, int id)
 {
     
 }

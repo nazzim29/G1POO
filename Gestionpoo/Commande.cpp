@@ -1,8 +1,8 @@
 #include "Commande.h"
 
-System::String Commande::Getref()
+System::String^ Commande::Getref()
 {
-    return System::String();
+    return"";
 }
 
 void Commande::Setref(System::String^ ref)
@@ -40,7 +40,7 @@ void Commande::Setdate_reglement(System::DateTime date_reglement)
     throw gcnew System::NotImplementedException();
 }
 
-Addr Commande::Getaddr_fact()
+/*Addr Commande::Getaddr_fact()
 {
     return Addr();
 }
@@ -73,44 +73,47 @@ void Commande::Setacht(Cliet acht)
 std::array<Produit> Commande::Getart()
 {
     return std::array<Produit>();
-}
+}*/
 
-void Commande::Setart(std::array<Produit> art)
+void Commande::Setart(array<Produit^>^ art)
 {
-    throw gcnew System::NotImplementedException();
+    
 }
 
-std::array<int> Commande::Getquant_comm()
+/*array<int>^ Commande::Getquant_comm()
 {
-    return std::array<int>();
-}
+    return  array<int>^;
+}*/
 
-void Commande::Setquant_comm(std::array<int> quant_comm)
+void Commande::Setquant_comm(array<int>^ quant_comm)
 {
-    throw gcnew System::NotImplementedException();
+ 
 }
 
-std::array<int> Commande::Getremise()
+/*array<int>^ Commande::Getremise()
 {
-    return std::array<int>();
-}
 
-void Commande::Setremise(std::array<int> remise)
+}*/
+
+void Commande::Setremise(array<int>^ remise)
 {
-    throw gcnew System::NotImplementedException();
+
 }
 
+/*
 Commande::Commande(System::String ref, System::DateTime date_liv, System::DateTime date_emission, System::DateTime date_reglement, Addr addr_fact, Addr addr_liv, Client acht, std::array<Produit> art, std::array<int> quant_comm, std::array<int> remise)
 {
     throw gcnew System::NotImplementedException();
 }
+*/
+
 
 Commande::Commande()
 {
-    throw gcnew System::NotImplementedException();
+
 }
 
 Commande::~Commande()
 {
-    throw gcnew System::NotImplementedException();
+
 }
