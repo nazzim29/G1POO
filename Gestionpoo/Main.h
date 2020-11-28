@@ -34,7 +34,9 @@ namespace Gestionpoo {
 				delete components;
 			}
 		}
-	private: Listepersonne^ lstpersonne = gcnew Listepersonne;
+	private: Listepersonne^ lstpersonnel = gcnew Listepersonne("select ID,Nom,Prenom from Client");
+	private: Listepersonne^ lstemploye = gcnew Listepersonne("select ID,Nom,Prenom from dbo.empolye");
+	private: Listepersonne^ lstarticle = gcnew Listepersonne("select Nom, Couleur, prix_ht as [Prix HT], quantite_stock as [Quantité en stock] from article");
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: System::Windows::Forms::Button^ button4;
@@ -44,7 +46,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button8;
+
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ button9;
 	private: System::Windows::Forms::Panel^ panel3;
@@ -74,7 +76,6 @@ namespace Gestionpoo {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
@@ -207,25 +208,12 @@ namespace Gestionpoo {
 			this->button6->FlatAppearance->BorderSize = 0;
 			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
-			this->button6->Location = System::Drawing::Point(879, 12);
+			this->button6->Location = System::Drawing::Point(946, 12);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(45, 52);
 			this->button6->TabIndex = 2;
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &Main::button6_Click);
-			// 
-			// button8
-			// 
-			this->button8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->button8->FlatAppearance->BorderSize = 0;
-			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
-			this->button8->Location = System::Drawing::Point(930, 12);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(57, 52);
-			this->button8->TabIndex = 3;
-			this->button8->UseVisualStyleBackColor = true;
-			this->button8->Click += gcnew System::EventHandler(this, &Main::button8_Click);
 			// 
 			// panel3
 			// 
@@ -243,7 +231,6 @@ namespace Gestionpoo {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel4->Controls->Add(this->button6);
-			this->panel4->Controls->Add(this->button8);
 			this->panel4->Controls->Add(this->button5);
 			this->panel4->Location = System::Drawing::Point(203, 0);
 			this->panel4->Name = L"panel4";
@@ -275,7 +262,6 @@ namespace Gestionpoo {
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
