@@ -118,12 +118,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Listepersonne.cpp" />
     <ClCompile Include="ListeStock.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Produit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Commande.h" />
     <ClInclude Include="Listepersonne.h">
       <FileType>CppForm</FileType>
     </ClInclude>
