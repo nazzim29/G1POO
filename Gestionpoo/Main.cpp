@@ -30,30 +30,18 @@ System::Void Main::button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
 }
 
-System::Void Gestionpoo::Main::button8_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
-	if (this->WindowState == System::Windows::Forms::FormWindowState::Normal) {
-		this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-		this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"minimize")));
-	}
-	else {
-		this->WindowState = System::Windows::Forms::FormWindowState::Normal;
-		this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"maximize")));
-	}
-}
 
 System::Void Gestionpoo::Main::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button1->Top;
-	if (panel3->Controls->Contains(lstpersonne)) {
-		lstpersonne->BringToFront();
+	if (panel3->Controls->Contains(lstpersonnel)) {
+		lstpersonnel->BringToFront();
 	}
 	else {
-		this->panel3->Controls->Add(lstpersonne);
-		lstpersonne->Dock = DockStyle::Fill;
-		lstpersonne->BringToFront();
+		this->panel3->Controls->Add(lstpersonnel);
+		lstpersonnel->Dock = DockStyle::Fill;
+		lstpersonnel->BringToFront();
 	}
 
 }
@@ -62,12 +50,28 @@ System::Void Gestionpoo::Main::button2_Click(System::Object^ sender, System::Eve
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button2->Top;
+	if (panel3->Controls->Contains(lstemploye)) {
+		lstemploye->BringToFront();
+	}
+	else {
+		this->panel3->Controls->Add(lstemploye);
+		lstemploye->Dock = DockStyle::Fill;
+		lstemploye->BringToFront();
+	}
 }
 
 System::Void Gestionpoo::Main::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button3->Top;
+	if (panel3->Controls->Contains(lstarticle)) {
+		lstarticle->BringToFront();
+	}
+	else {
+		this->panel3->Controls->Add(lstarticle);
+		lstarticle->Dock = DockStyle::Fill;
+		lstarticle->BringToFront();
+	}
 }
 
 System::Void Gestionpoo::Main::button4_Click(System::Object^ sender, System::EventArgs^ e)
