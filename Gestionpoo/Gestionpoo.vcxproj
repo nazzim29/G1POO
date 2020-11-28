@@ -119,11 +119,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Listepersonne.cpp" />
+    <ClCompile Include="ListeStock.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Listepersonne.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ListeStock.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
