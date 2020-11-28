@@ -118,14 +118,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Listepersonne.cpp" />
     <ClCompile Include="ListeStock.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personne.cpp" />
+    <ClCompile Include="Personnel.cpp" />
     <ClCompile Include="Produit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Listepersonne.h">
       <FileType>CppForm</FileType>
@@ -137,6 +140,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Personne.h" />
+    <ClInclude Include="Personnel.h" />
     <ClInclude Include="Produit.h" />
   </ItemGroup>
   <ItemGroup>
