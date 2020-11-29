@@ -1,5 +1,6 @@
 #pragma once
-#include "Listepersonne.h"
+#include "Listepersonnel.h"
+#include "ListeStock.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -34,9 +35,9 @@ namespace Gestionpoo {
 				delete components;
 			}
 		}
-	private: Listepersonne^ lstpersonnel = gcnew Listepersonne("select ID,Nom,Prenom from Client");
-	private: Listepersonne^ lstemploye = gcnew Listepersonne("select ID,Nom,Prenom from dbo.empolye");
-	private: Listepersonne^ lstarticle = gcnew Listepersonne("select Nom, Couleur, prix_ht as [Prix HT], quantite_stock as [Quantité en stock] from article");
+	private: Listepersonnel^ lstpersonnel = gcnew Listepersonnel();
+	private: Listepersonnel^ lstemploye = gcnew Listepersonnel();
+	private: ListeStock^ lstarticle = gcnew ListeStock();
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: System::Windows::Forms::Button^ button4;

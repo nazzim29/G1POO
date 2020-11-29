@@ -121,7 +121,8 @@
     <ClCompile Include="Addr.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
-    <ClCompile Include="Listepersonne.cpp" />
+    <ClCompile Include="Liste.cpp" />
+    <ClCompile Include="Listepersonnel.cpp" />
     <ClCompile Include="ListeStock.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Personne.cpp" />
@@ -132,7 +133,10 @@
     <ClInclude Include="Addr.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
-    <ClInclude Include="Listepersonne.h">
+    <ClInclude Include="Liste.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Listepersonnel.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ListeStock.h">
@@ -146,8 +150,14 @@
     <ClInclude Include="Produit.h" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Listepersonne.resx">
-      <DependentUpon>Listepersonne.h</DependentUpon>
+    <EmbeddedResource Include="Liste.resx">
+      <DependentUpon>Liste.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listepersonnel.resx">
+      <DependentUpon>Listepersonnel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeStock.resx">
+      <DependentUpon>ListeStock.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>

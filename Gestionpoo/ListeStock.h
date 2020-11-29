@@ -1,11 +1,7 @@
+#include "Liste.h"
 #pragma once
 
-using namespace System;
-using namespace System::ComponentModel;
-using namespace System::Collections;
-using namespace System::Windows::Forms;
-using namespace System::Data;
-using namespace System::Drawing;
+
 
 
 namespace Gestionpoo {
@@ -13,16 +9,17 @@ namespace Gestionpoo {
 	/// <summary>
 	/// Description résumée de ListeStock
 	/// </summary>
-	public ref class ListeStock : public System::Windows::Forms::UserControl
+	public ref class ListeStock : public Gestionpoo::Liste
 	{
-	public:
-		ListeStock(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: ajoutez ici le code du constructeur
-			//
-		}
+	public: ListeStock() {
+		Liste::InitializeComponent();
+		this->button5->Click += gcnew System::EventHandler(this, &ListeStock::Liste_Load);
+		this->Load += gcnew System::EventHandler(this, &ListeStock::Liste_Load);
+		this->button1->Click += gcnew System::EventHandler(this, &ListeStock::button1_Click);
+		this->button2->Click += gcnew System::EventHandler(this, &ListeStock::button2_Click);
+		this->button3->Click += gcnew System::EventHandler(this, &ListeStock::button3_Click);
+		this->button4->Click += gcnew System::EventHandler(this, &ListeStock::button4_Click);
+	}
 
 	protected:
 		/// <summary>
@@ -35,22 +32,14 @@ namespace Gestionpoo {
 				delete components;
 			}
 		}
-
-	private:
-		/// <summary>
-		/// Variable nécessaire au concepteur.
-		/// </summary>
-		System::ComponentModel::Container ^components;
-
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		}
+		
 #pragma endregion
+	protected:
+	System::Void Liste_Load(System::Object^ sender, System::EventArgs^ e) new;
+	System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) new;
+	System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) new;
+	System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) new;
+	System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) new;
 	};
 }
