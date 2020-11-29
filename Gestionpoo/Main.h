@@ -1,6 +1,7 @@
 #pragma once
 #include "Listepersonnel.h"
 #include "ListeStock.h"
+#include "Listeclient.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -36,7 +37,7 @@ namespace Gestionpoo {
 			}
 		}
 	private: Listepersonnel^ lstpersonnel = gcnew Listepersonnel();
-	private: Listepersonnel^ lstemploye = gcnew Listepersonnel();
+	private: Listeclient^ lstclient = gcnew Listeclient();
 	private: ListeStock^ lstarticle = gcnew ListeStock();
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:

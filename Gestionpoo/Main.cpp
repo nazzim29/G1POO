@@ -50,13 +50,13 @@ System::Void Gestionpoo::Main::button2_Click(System::Object^ sender, System::Eve
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button2->Top;
-	if (panel3->Controls->Contains(lstemploye)) {
-		lstemploye->BringToFront();
+	if (panel3->Controls->Contains(lstclient)) {
+		lstclient->BringToFront();
 	}
 	else {
-		this->panel3->Controls->Add(lstemploye);
-		lstemploye->Dock = DockStyle::Fill;
-		lstemploye->BringToFront();
+		this->panel3->Controls->Add(lstclient);
+		lstclient->Dock = DockStyle::Fill;
+		lstclient->BringToFront();
 	}
 }
 
