@@ -26,7 +26,7 @@ array<Addr^>^ Client::Getaddr_fact()
     // TODO: insérer une instruction return ici
 }
 
-void Client::Setaddr_fact(std::array<Addr^>^ addr_fact)
+void Client::Setaddr_fact(array<Addr^>^ addr_fact)
 {
     throw gcnew System::NotImplementedException();
 }

@@ -11,17 +11,17 @@ void Personnel::Setdate_embache(System::DateTime date_embache)
     throw gcnew System::NotImplementedException();
 }
 
-Addr Personnel::Getaddr()
+Addr^ Personnel::Getaddr()
 {
-    return Addr();
+    return addr;
 }
 
-void Personnel::Setaddr_(Addr addr)
+void Personnel::Setaddr_(Addr^ addr)
 {
     throw gcnew System::NotImplementedException();
 }
 
-Personnel::Personnel(System::DateTime date_embauche, Addr addr)
+Personnel::Personnel(System::DateTime date_embauche, Addr^ addr)
 {
     throw gcnew System::NotImplementedException();
 }

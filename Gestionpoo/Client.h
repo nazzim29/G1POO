@@ -1,6 +1,6 @@
 #pragma once
 #include "Personne.h"
-#include "Addr"
+#include "Addr.h"
 #include <array>
 ref class Client :
     public Personne
@@ -18,7 +18,7 @@ public:
     void Setdate_pr_achat(System::DateTime date_pr_achat);
 
     array<Addr^>^ Getaddr_fact();
-    void Setaddr_fact(std::array<Addr^>^ addr_fact);
+    void Setaddr_fact(array<Addr^>^ addr_fact);
 
 
     array<Addr^>^ Getaddr_liv();

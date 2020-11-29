@@ -6,19 +6,19 @@ ref class Personnel :
 {
  private:
     System::DateTime date_embauche;
-    Addr addr;
+    Addr^ addr;
     
 
 public:
     System::DateTime Getdate_embauche();
     void Setdate_embache(System::DateTime date_embache);
 
-    Addr Getaddr();
-    void Setaddr_(Addr addr);
+    Addr^ Getaddr();
+    void Setaddr_(Addr^ addr);
 
  
   
-    Personnel::Personnel(System::DateTime date_embauche, Addr addr);
+    Personnel::Personnel(System::DateTime date_embauche, Addr^ addr);
     Personnel::Personnel();
 
     Personnel::~Personnel();
