@@ -1,5 +1,9 @@
 #pragma once
 #include "Client.h"
+
+
+
+
 namespace Gestionpoo {
 
 	using namespace System;
@@ -16,8 +20,9 @@ namespace Gestionpoo {
 	{
 	private: Client^ current_client;
 	public:
-		FicheClient(Client client)
+		FicheClient(Client^ client)
 		{
+			this->current_client = client;
 			InitializeComponent();
 			//
 			//TODO: ajoutez ici le code du constructeur
@@ -39,15 +44,20 @@ namespace Gestionpoo {
 	protected:
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ txtnom;
+	private: System::Windows::Forms::TextBox^ txtprenom;
+
+
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+	private: System::Windows::Forms::DateTimePicker^ datenais;
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ lblid;
+
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::DateTimePicker^ dateachat;
+
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -74,15 +84,15 @@ namespace Gestionpoo {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->txtnom = (gcnew System::Windows::Forms::TextBox());
+			this->txtprenom = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->datenais = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->lblid = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateachat = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -127,21 +137,21 @@ namespace Gestionpoo {
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Nom";
 			// 
-			// textBox1
+			// txtnom
 			// 
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Location = System::Drawing::Point(276, 128);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(125, 20);
-			this->textBox1->TabIndex = 3;
+			this->txtnom->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtnom->Location = System::Drawing::Point(276, 128);
+			this->txtnom->Name = L"txtnom";
+			this->txtnom->Size = System::Drawing::Size(125, 20);
+			this->txtnom->TabIndex = 3;
 			// 
-			// textBox2
+			// txtprenom
 			// 
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox2->Location = System::Drawing::Point(517, 128);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(125, 20);
-			this->textBox2->TabIndex = 5;
+			this->txtprenom->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtprenom->Location = System::Drawing::Point(517, 128);
+			this->txtprenom->Name = L"txtprenom";
+			this->txtprenom->Size = System::Drawing::Size(125, 20);
+			this->txtprenom->TabIndex = 5;
 			// 
 			// label3
 			// 
@@ -154,13 +164,13 @@ namespace Gestionpoo {
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Prenom";
 			// 
-			// dateTimePicker2
+			// datenais
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(154, 182);
-			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(222, 27);
-			this->dateTimePicker2->TabIndex = 7;
-			this->dateTimePicker2->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
+			this->datenais->Location = System::Drawing::Point(154, 182);
+			this->datenais->Name = L"datenais";
+			this->datenais->Size = System::Drawing::Size(222, 27);
+			this->datenais->TabIndex = 7;
+			this->datenais->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
 			// 
 			// label4
 			// 
@@ -184,16 +194,16 @@ namespace Gestionpoo {
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"Identifiant";
 			// 
-			// label6
+			// lblid
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblid->AutoSize = true;
+			this->lblid->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(139, 128);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(23, 19);
-			this->label6->TabIndex = 10;
-			this->label6->Text = L"ID";
+			this->lblid->Location = System::Drawing::Point(139, 128);
+			this->lblid->Name = L"lblid";
+			this->lblid->Size = System::Drawing::Size(23, 19);
+			this->lblid->TabIndex = 10;
+			this->lblid->Text = L"ID";
 			// 
 			// label7
 			// 
@@ -206,13 +216,13 @@ namespace Gestionpoo {
 			this->label7->TabIndex = 12;
 			this->label7->Text = L"Date premier achat";
 			// 
-			// dateTimePicker1
+			// dateachat
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(538, 182);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(217, 27);
-			this->dateTimePicker1->TabIndex = 11;
-			this->dateTimePicker1->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
+			this->dateachat->Location = System::Drawing::Point(538, 182);
+			this->dateachat->Name = L"dateachat";
+			this->dateachat->Size = System::Drawing::Size(217, 27);
+			this->dateachat->TabIndex = 11;
+			this->dateachat->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
 			// 
 			// label8
 			// 
@@ -265,6 +275,7 @@ namespace Gestionpoo {
 			this->button2->Size = System::Drawing::Size(50, 50);
 			this->button2->TabIndex = 16;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FicheClient::button2_Click);
 			// 
 			// button5
 			// 
@@ -309,14 +320,14 @@ namespace Gestionpoo {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->label6);
+			this->Controls->Add(this->dateachat);
+			this->Controls->Add(this->lblid);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->dateTimePicker2);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->datenais);
+			this->Controls->Add(this->txtprenom);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtnom);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
@@ -335,5 +346,8 @@ namespace Gestionpoo {
 
 		}
 #pragma endregion
+private: System::Void FicheClient_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

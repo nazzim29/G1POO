@@ -177,6 +177,9 @@
     <EmbeddedResource Include="FicheClient.resx">
       <DependentUpon>FicheClient.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FicheEmploye.resx">
+      <DependentUpon>FicheEmploye.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Liste.resx">
       <DependentUpon>Liste.h</DependentUpon>
     </EmbeddedResource>
