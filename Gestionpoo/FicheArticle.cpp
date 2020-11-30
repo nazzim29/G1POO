@@ -1,0 +1,2 @@
+#include "FicheArticle.h"
+

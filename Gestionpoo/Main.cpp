@@ -85,3 +85,9 @@ System::Void Gestionpoo::Main::button9_Click(System::Object^ sender, System::Eve
 	this->panel2->Visible = true;
 	this->panel2->Top = button9->Top;
 }
+
+System::Void Gestionpoo::Main::button8_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	this->panel2->Visible = true;
+	this->panel2->Top = button8->Top;
+}
