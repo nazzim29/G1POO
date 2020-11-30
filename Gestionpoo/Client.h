@@ -2,31 +2,24 @@
 #include "Personne.h"
 #include "Addr.h"
 #include <array>
-ref class Client :
-    public Personne
+ref class Client : public Personne
 {
 private:
     System::DateTime date_naissance;
     System::DateTime date_pr_achat;
-    array<Addr^>^ addr_liv;
-    array<Addr^>^ addr_fact;
+    array<Addr^>^ addr;
+    System::Data::SqlClient::SqlConnection^ cnx;
+    void init();
 public:
-        System::DateTime Getdate_naissance();
+    bool new_client;
+    System::DateTime Getdate_naissance();
     void Setdate_naissance(System::DateTime date_naissance);
-
     System::DateTime Getdate_pr_achat();
     void Setdate_pr_achat(System::DateTime date_pr_achat);
-
-    array<Addr^>^ Getaddr_fact();
-    void Setaddr_fact(array<Addr^>^ addr_fact);
-
-
-    array<Addr^>^ Getaddr_liv();
-    void Setaddr_liv(array<Addr^>^ addr_liv);
-
-    Client::Client(System::DateTime date_naissance, System::DateTime date_pr_achat, array<Addr^>^ addr_liv, array<Addr^>^ addr_fact);
+    array<Addr^>^ Getaddr();
+    void Setaddr(array<Addr^>^ addr_liv);
+    Client::Client(int id);
     Client::Client();
-
     Client::~Client();
 };
 

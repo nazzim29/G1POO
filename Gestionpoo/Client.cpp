@@ -1,5 +1,22 @@
 #include "Client.h"
 
+void Client::init()
+{
+    System::Data::SqlClient::SqlCommand^ query = gcnew System::Data::SqlClient::SqlCommand("select nom ,prenom,date_naissance,date_achat from client where id = 4", cnx);
+    System::Data::SqlClient::SqlDataReader^ rd = query->ExecuteReader();
+    this->nom = rd->GetString(0);
+    this->prenom = rd->GetString(1);
+    this->date_naissance = rd->GetDateTime(2);
+    this->date_pr_achat = rd->GetDateTime(3);
+    query = gcnew System::Data::SqlClient::SqlCommand("select id_adresse from adresse_facturation_livraison where id = "+ this->id, cnx);
+    rd = query->ExecuteReader();
+    /*while(rd->Read()) {
+        Addr^ d = gcnew Addr(rd->GetInt64(0),this->cnx);
+        addr
+    }*/
+
+}
+
 System::DateTime Client::Getdate_naissance()
 {
     return System::DateTime();
@@ -20,36 +37,29 @@ void Client::Setdate_pr_achat(System::DateTime date_pr_achat)
     throw gcnew System::NotImplementedException();
 }
 
-array<Addr^>^ Client::Getaddr_fact()
+
+
+array<Addr^>^ Client::Getaddr()
 {
     throw gcnew System::NotImplementedException();
     // TODO: insérer une instruction return ici
 }
 
-void Client::Setaddr_fact(array<Addr^>^ addr_fact)
+void Client::Setaddr(array<Addr^>^ addr_liv)
 {
     throw gcnew System::NotImplementedException();
 }
 
-array<Addr^>^ Client::Getaddr_liv()
+Client::Client(int id)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: insérer une instruction return ici
-}
-
-void Client::Setaddr_liv(array<Addr^>^ addr_liv)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Client::Client(System::DateTime date_naissance, System::DateTime date_pr_achat, array<Addr^>^ addr_liv, array<Addr^>^ addr_fact)
-{
-    throw gcnew System::NotImplementedException();
+    this->id = id;
+    init();
 }
 
 Client::Client()
 {
-    throw gcnew System::NotImplementedException();
+    new_client = true;
+
 }
 
 Client::~Client()
