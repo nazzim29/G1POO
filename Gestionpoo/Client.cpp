@@ -10,10 +10,9 @@ void Client::init()
     this->date_pr_achat = rd->GetDateTime(3);
     query = gcnew System::Data::SqlClient::SqlCommand("select id_adresse from adresse_facturation_livraison where id = "+ this->id, cnx);
     rd = query->ExecuteReader();
-    /*while(rd->Read()) {
-        Addr^ d = gcnew Addr(rd->GetInt64(0),this->cnx);
-        addr
-    }*/
+    while(rd->Read()) {
+        addr->Add(gcnew Addr(rd->GetInt64(0),this->cnx));
+    }
 
 }
 
@@ -39,13 +38,13 @@ void Client::Setdate_pr_achat(System::DateTime date_pr_achat)
 
 
 
-array<Addr^>^ Client::Getaddr()
+System::Collections::Generic::List<Addr^>^ Client::Getaddr()
 {
     throw gcnew System::NotImplementedException();
     // TODO: insérer une instruction return ici
 }
 
-void Client::Setaddr(array<Addr^>^ addr_liv)
+void Client::Setaddr(System::Collections::Generic::List<Addr^>^ addr)
 {
     throw gcnew System::NotImplementedException();
 }
@@ -53,6 +52,7 @@ void Client::Setaddr(array<Addr^>^ addr_liv)
 Client::Client(int id)
 {
     this->id = id;
+    this->cnx = cnx;
     init();
 }
 

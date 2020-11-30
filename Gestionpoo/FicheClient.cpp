@@ -16,8 +16,8 @@ System::Void Gestionpoo::FicheClient::FicheClient_Load(System::Object^ sender, S
         datenais->Value = current_client->Getdate_naissance();
         dateachat->MinDate = current_client->Getdate_naissance();
         dateachat->Value = current_client->Getdate_pr_achat();
-        array<Addr^>^ addr = current_client->Getaddr();
-        for (int i = 0; i < addr->Length; i++) {
+        System::Collections::Generic::List<Addr^>^ addr = current_client->Getaddr();
+        for (int i = 0; i < addr->Count; i++) {
             dataGridView1->Rows->Add();
             dataGridView1->Rows[i]->Cells[0]->Value = addr[i]->get_id();
             dataGridView1->Rows[i]->Cells[1]->Value = addr[i]->get_adresse();
