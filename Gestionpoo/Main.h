@@ -108,7 +108,7 @@ namespace Gestionpoo {
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button4->Location = System::Drawing::Point(5, 296);
+			this->button4->Location = System::Drawing::Point(3, 296);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(270, 58);
 			this->button4->TabIndex = 4;
@@ -145,7 +145,7 @@ namespace Gestionpoo {
 			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
 			this->button8->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button8->Location = System::Drawing::Point(5, 423);
+			this->button8->Location = System::Drawing::Point(3, 423);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(270, 54);
 			this->button8->TabIndex = 7;
@@ -172,7 +172,7 @@ namespace Gestionpoo {
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
 			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button3->Location = System::Drawing::Point(5, 232);
+			this->button3->Location = System::Drawing::Point(3, 232);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(270, 58);
 			this->button3->TabIndex = 3;
@@ -186,7 +186,7 @@ namespace Gestionpoo {
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
 			this->button2->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button2->Location = System::Drawing::Point(3, 168);
+			this->button2->Location = System::Drawing::Point(3, 169);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(270, 57);
 			this->button2->TabIndex = 2;
@@ -200,9 +200,9 @@ namespace Gestionpoo {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
 			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button1->Location = System::Drawing::Point(5, 105);
+			this->button1->Location = System::Drawing::Point(3, 105);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(270, 57);
+			this->button1->Size = System::Drawing::Size(275, 58);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Personnel";
 			this->button1->UseVisualStyleBackColor = true;

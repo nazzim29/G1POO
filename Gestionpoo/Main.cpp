@@ -16,7 +16,7 @@ System::Void Gestionpoo::Main::button7_Click(System::Object^ sender, System::Eve
 	if (panel1->Size == System::Drawing::Size(200, 529)) {
 
 		this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"right_arrow")));
-		this->panel1->Size = System::Drawing::Size(88, 529);
+		this->panel1->Size = System::Drawing::Size(60, 529);
 	}
 	else {
 		this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"left_arrow")));
