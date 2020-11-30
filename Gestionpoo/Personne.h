@@ -1,7 +1,7 @@
 #pragma once
 ref class Personne
 {
-private:
+protected:
 	System::String^ nom;
 	System::String^ prenom;
 	int id;

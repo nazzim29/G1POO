@@ -1,4 +1,6 @@
 #include "Liste.h"
+#include "Client.h"
+#include "FicheClient.h"
 #pragma once
 
 
@@ -12,6 +14,7 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class Listeclient : public Gestionpoo::Liste
 	{
+	private: Client^ client;
 		public:
 		Listeclient(void)
 		{

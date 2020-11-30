@@ -3,7 +3,7 @@
 System::Void Gestionpoo::Listepersonnel::Liste_Load(System::Object^ sender, System::EventArgs^ e)
 {
 	SqlConnection^ dbcnx = gcnew SqlConnection("Server=tcp:poo.database.windows.net,1433;Initial Catalog=Projetg1;Persist Security Info=False;User ID=nazim;Password=uLafdnE6-;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-	SqlCommand^ query = gcnew SqlCommand("SELECT ID , Nom ,Prenom FROM [dbo].[empolye]", dbcnx);
+	SqlCommand^ query = gcnew SqlCommand("SELECT ID , Nom ,Prenom FROM [dbo].[employe]", dbcnx);
 	SqlDataAdapter^ adapter = gcnew SqlDataAdapter(query);
 	DataTable^ dt = gcnew DataTable();
 	adapter->Fill(dt);
