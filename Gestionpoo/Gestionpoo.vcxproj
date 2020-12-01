@@ -184,6 +184,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Paiement.h" />
+    <ClInclude Include="FichePayement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
     <ClInclude Include="SVC_Gclient.h" />
@@ -196,11 +199,20 @@
     <ClInclude Include="Vivre.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FicheArticle.resx">
+      <DependentUpon>FicheArticle.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FicheClient.resx">
       <DependentUpon>FicheClient.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FicheCommande.resx">
+      <DependentUpon>FicheCommande.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FicheEmploye.resx">
       <DependentUpon>FicheEmploye.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichePayement.resx">
+      <DependentUpon>FichePayement.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Liste.resx">
       <DependentUpon>Liste.h</DependentUpon>
