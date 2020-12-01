@@ -118,7 +118,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Addr.cpp" />
+    <ClCompile Include="Adresse.cpp" />
+    <ClCompile Include="Article.cpp" />
+    <ClCompile Include="CAD.cpp" />
+    <ClCompile Include="Choisir.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="FicheArticle.cpp" />
@@ -131,12 +134,23 @@
     <ClCompile Include="ListeStock.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Listeclient.cpp" />
+    <ClCompile Include="Paiement.cpp" />
     <ClCompile Include="Personne.cpp" />
     <ClCompile Include="Personnel.cpp" />
-    <ClCompile Include="Produit.cpp" />
+    <ClCompile Include="SVC_Gclient.cpp" />
+    <ClCompile Include="SVC_Gcommande.cpp" />
+    <ClCompile Include="SVC_Gemploye.cpp" />
+    <ClCompile Include="SVC_Gpayement.cpp" />
+    <ClCompile Include="SVC_Gstatistique.cpp" />
+    <ClCompile Include="SVC_Gstock.cpp" />
+    <ClCompile Include="Ville.cpp" />
+    <ClCompile Include="Vivre.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Addr.h" />
+    <ClInclude Include="Adresse.h" />
+    <ClInclude Include="Article.h" />
+    <ClInclude Include="CAD.h" />
+    <ClInclude Include="Choisir.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="FicheArticle.h">
@@ -169,9 +183,17 @@
     <ClInclude Include="Listeclient.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Paiement.h" />
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
-    <ClInclude Include="Produit.h" />
+    <ClInclude Include="SVC_Gclient.h" />
+    <ClInclude Include="SVC_Gcommande.h" />
+    <ClInclude Include="SVC_Gemploye.h" />
+    <ClInclude Include="SVC_Gpayement.h" />
+    <ClInclude Include="SVC_Gstatistique.h" />
+    <ClInclude Include="SVC_Gstock.h" />
+    <ClInclude Include="Ville.h" />
+    <ClInclude Include="Vivre.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FicheClient.resx">

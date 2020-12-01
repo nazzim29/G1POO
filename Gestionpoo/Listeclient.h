@@ -14,7 +14,7 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class Listeclient : public Gestionpoo::Liste
 	{
-	private: Client^ client;
+	private: Composant::Client^ client;
 		public:
 		Listeclient(void)
 		{

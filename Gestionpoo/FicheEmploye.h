@@ -47,13 +47,13 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ txtnom;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Button^ button3;
+
+
+
 	private: System::Windows::Forms::Button^ button6;
 
 
@@ -85,13 +85,9 @@ namespace Gestionpoo {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txtnom = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -134,7 +130,7 @@ namespace Gestionpoo {
 			this->lblid->AutoSize = true;
 			this->lblid->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblid->Location = System::Drawing::Point(128, 143);
+			this->lblid->Location = System::Drawing::Point(157, 145);
 			this->lblid->Name = L"lblid";
 			this->lblid->Size = System::Drawing::Size(23, 19);
 			this->lblid->TabIndex = 20;
@@ -161,7 +157,6 @@ namespace Gestionpoo {
 			this->label4->Size = System::Drawing::Size(111, 19);
 			this->label4->TabIndex = 18;
 			this->label4->Text = L"Date embauche";
-			this->label4->Click += gcnew System::EventHandler(this, &FicheEmploye::label4_Click);
 			// 
 			// datenais
 			// 
@@ -209,14 +204,6 @@ namespace Gestionpoo {
 			this->label2->TabIndex = 13;
 			this->label2->Text = L"Nom";
 			// 
-			// textBox1
-			// 
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Location = System::Drawing::Point(156, 148);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(104, 13);
-			this->textBox1->TabIndex = 23;
-			// 
 			// textBox2
 			// 
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
@@ -244,40 +231,6 @@ namespace Gestionpoo {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(460, 43);
 			this->textBox3->TabIndex = 26;
-			this->textBox3->TextChanged += gcnew System::EventHandler(this, &FicheEmploye::textBox3_TextChanged);
-			// 
-			// button2
-			// 
-			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(1, 378);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(50, 50);
-			this->button2->TabIndex = 27;
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this->button4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.BackgroundImage")));
-			this->button4->FlatAppearance->BorderSize = 0;
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Location = System::Drawing::Point(57, 378);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(50, 50);
-			this->button4->TabIndex = 28;
-			this->button4->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Location = System::Drawing::Point(132, 378);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(50, 50);
-			this->button3->TabIndex = 29;
-			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// button6
 			// 
@@ -302,13 +255,9 @@ namespace Gestionpoo {
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(859, 431);
 			this->Controls->Add(this->button6);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->lblid);
 			this->Controls->Add(this->label5);
@@ -323,21 +272,19 @@ namespace Gestionpoo {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"FicheEmploye";
 			this->Text = L"FicheEmploye";
-			this->Load += gcnew System::EventHandler(this, &FicheEmploye::FicheEmploye_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void FicheEmploye_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
 
-
-	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-private: System::Void dateachat_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+	public:
+		void set_id(int i);
+		//void set_nom(String^ n);
+		//void set_prenom(String^ p);
+		//void set_date_embauche(DateTime^ date);
+		//void set_sup(String^ sup);
+		//void set_sup_data(DataTable^ dt);
+		void set_adresse(String^ addr);
 };
 }

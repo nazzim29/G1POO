@@ -1,4 +1,6 @@
 #include "Liste.h"
+#include "SVC_Gemploye.h"
+#include "FicheEmploye.h"
 #pragma once
 
 namespace Gestionpoo {
@@ -6,12 +8,14 @@ namespace Gestionpoo {
 	using namespace System;
 	using namespace System::Data::SqlClient;
 	using namespace System::Data;
+	using namespace Service;
 
 	/// <summary>
 	/// Description résumée de Listepersonne
 	/// </summary>
 	public ref class Listepersonnel : public Gestionpoo::Liste
 	{
+	private:SVC_Gemploye^ gestionemploye = gcnew SVC_Gemploye();
 	private:System::Windows::Forms::DataGridView^ dataGridView1;
 
 	public:

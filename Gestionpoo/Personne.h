@@ -1,27 +1,30 @@
 #pragma once
-ref class Personne
-{
-protected:
-	System::String^ nom;
-	System::String^ prenom;
-	int id;
+namespace Composant {
+	using namespace System;
+	ref class Personne  //classe mère
+	{
+		protected:
+			String^ nom,^prenom;
+			int id;
+		public:
+			Personne();
+			void set_nom(String^ nom);
+			void set_prenom(String^ prenom);
+			String^ get_nom();
+			String^ get_prenom();
+			void set_id(int id);
+			int get_id();
+	protected:
+			virtual String^ SELECT(void);
+			virtual String^ INSERT(void);
+			virtual String^ UPDATE(void);
+			virtual String^ DELETE(void);
+		protected:
+			~Personne() {
+				delete nom, prenom;
+				delete this;
+			}
 
-public:
-	System::String^ Getnom();
-	void Setnom(System::String^ nom);
-
-	System::String^ Getprenom();
-	void Setprenom(System::String^ prenom);
-
-	int Getid();
-	void Setid(int id);
-
-	Personne::Personne(System::String^ nom, System::String^ prenom, int id);
-	Personne::Personne();
-
-	Personne::~Personne();
-
-
-};
-
+	};
+}
 

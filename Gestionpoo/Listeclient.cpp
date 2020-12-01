@@ -12,17 +12,16 @@ System::Void Gestionpoo::Listeclient::Liste_Load(System::Object^ sender, System:
 
 System::Void Gestionpoo::Listeclient::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	client = gcnew Client();
-	FicheClient^ ficheclient = gcnew FicheClient(client);
-	ficheclient->ShowDialog();
+	//FicheClient^ ficheclient = gcnew FicheClient(client);
+	//ficheclient->ShowDialog();
 	Liste_Load(sender, e);
 }
 
 System::Void Gestionpoo::Listeclient::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	client = gcnew Client(Convert::ToInt64(dataGridView1->SelectedRows[0]->Cells[0]->Value));
-	FicheClient^ ficheclient = gcnew FicheClient(client);
-	ficheclient->ShowDialog();
+	//client = gcnew Client(Convert::ToInt64(dataGridView1->SelectedRows[0]->Cells[0]->Value));
+	//FicheClient^ ficheclient = gcnew FicheClient(client);
+	//ficheclient->ShowDialog();
 	Liste_Load(sender, e);
 }
 

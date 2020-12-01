@@ -2,22 +2,23 @@
 
 System::Void Gestionpoo::Listepersonnel::Liste_Load(System::Object^ sender, System::EventArgs^ e)
 {
-	SqlConnection^ dbcnx = gcnew SqlConnection("Server=tcp:poo.database.windows.net,1433;Initial Catalog=Projetg1;Persist Security Info=False;User ID=nazim;Password=uLafdnE6-;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-	SqlCommand^ query = gcnew SqlCommand("SELECT ID , Nom ,Prenom FROM [dbo].[employe]", dbcnx);
-	SqlDataAdapter^ adapter = gcnew SqlDataAdapter(query);
-	DataTable^ dt = gcnew DataTable();
-	adapter->Fill(dt);
-	dataGridView1->DataSource = dt;
+	dataGridView1->DataSource = gestionemploye->listeemploye();
 }
 
 System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	FicheEmploye^ fe = gcnew FicheEmploye();
+
+	fe->ShowDialog();
+
 }
 
 System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	FicheEmploye^ fe = gcnew FicheEmploye();
+	fe->set_adresse(gestionemploye->adressesemploye(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value)));
+	fe->set_id(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
+	fe->ShowDialog();
 }
 
 System::Void Gestionpoo::Listepersonnel::button3_Click(System::Object^ sender, System::EventArgs^ e)

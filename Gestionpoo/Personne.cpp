@@ -1,45 +1,64 @@
 #include "Personne.h"
-
-System::String^ Personne::Getnom()
-{
-    return "";
-}
-
-void Personne::Setnom(System::String^ nom)
-{
-}
-
-System::String^ Personne::Getprenom()
-{
-    return "";
-}
-
-void Personne::Setprenom(System::String^ prenom)
-{
-   
-}
-
-int Personne::Getid()
-{
-    return 0;
-}
-
-void Personne::Setid(int id)
-{
+namespace Composant {
     
-}
 
-Personne::Personne(System::String^ nom, System::String^ prenom, int id)
-{
-    
-}
+    Composant::Personne::Personne()
+    {
+        
+    }
 
-Personne::Personne()
-{
-   
-}
+    void Composant::Personne::set_nom(String^ nom)
+    {
+        this->nom = nom;
+    }
 
-Personne::~Personne()
-{
-    
+    void Composant::Personne::set_prenom(String^ prenom)
+    {
+        this->prenom = prenom;
+    }
+
+    String^ Composant::Personne::get_nom()
+    {
+        return this->nom;
+    }
+
+    String^ Composant::Personne::get_prenom()
+    {
+        return this->prenom;
+    }
+
+    void Composant::Personne::set_id(int id)
+    {
+        this->id = id;
+    }
+
+    int Composant::Personne::get_id()
+    {
+        return this->id;
+    }
+
+    String^ Personne::SELECT(void)
+    {
+        throw gcnew System::NotImplementedException();
+        // TODO: insérer une instruction return ici
+    }
+
+    String^ Personne::INSERT(void)
+    {
+        throw gcnew System::NotImplementedException();
+        // TODO: insérer une instruction return ici
+    }
+
+    String^ Personne::UPDATE(void)
+    {
+        throw gcnew System::NotImplementedException();
+        // TODO: insérer une instruction return ici
+    }
+
+    String^ Personne::DELETE(void)
+    {
+        throw gcnew System::NotImplementedException();
+        // TODO: insérer une instruction return ici
+    }
+
 }

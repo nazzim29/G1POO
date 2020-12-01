@@ -18,11 +18,9 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class FicheClient : public System::Windows::Forms::Form
 	{
-	private: Client^ current_client;
 	public:
-		FicheClient(Client^ client)
+		FicheClient()
 		{
-			this->current_client = client;
 			InitializeComponent();
 			//
 			//TODO: ajoutez ici le code du constructeur

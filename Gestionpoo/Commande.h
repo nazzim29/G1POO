@@ -1,59 +1,40 @@
 #pragma once
-#include <array>
-//#include"Addr.h"
-//#include "Client.h"
-#include "Produit.h"
-
-ref class Commande
-{
-private:
-	System::String^ ref;
-	System::DateTime date_liv;
-	System::DateTime date_emission;
-	System::DateTime date_reglement;
-	//Addr addr_fact;
-	//Addr addr_liv;
-	//Client acht;
-	array<Produit^>^ art;
-	array<int>^ quant_comm;
-	array<int>^ remise;
-	
-public:
-	System::String^ Getref();
-	void Setref(System::String^ ref);
-
-	System::DateTime Getdate_liv();
-	void Setdate_liv(System::DateTime date_liv);
-
-	System::DateTime Getdate_emission();
-	void Setdate_emission(System::DateTime date_emmision);
-
-	System::DateTime Getdate_reglement();
-	void Setdate_reglement(System::DateTime date_reglement);
-	
-	//Addr Getaddr_fact();
-	//void Setaddr_fact(Addr addr_fact);
-
-	//Addr Getaddr_liv();
-	//void Setaddr_liv(Addr addr_liv);
-
-	//Client Getacht();
-	//void Setacht(Cliet acht);
-
-	/*array<Produit^>^ Getart();*/
-	void Setart(array<Produit^>^ art);
-
-	//array<int>^ Getquant_comm();
-	void Setquant_comm(array<int>^ quant_comm);
-
-
-	//array<int>^ Getremise();
-	void Setremise(array<int>^ remise);
-	
-	//Commande::Commande(System::String^ ref, System::DateTime date_liv, System::DateTime date_emission, System::DateTime date_reglement, Addr addr_fact, Addr addr_liv, Client acht, array<Produit^>^ art, array<int>^ quant_comm, array<int>^ remise);
-	Commande::Commande();
-
-	Commande::~Commande();
-
-};
+namespace Composant {
+	ref class Commande
+	{
+		private:
+			int id_commande, id_client, id_adresse_livraison, id_adresse_facturation;
+			System::DateTime^ date_emission, ^ date_livraison, ^ date_reglement_solde;
+			System::String^ ref;
+			System::String^ date_to_string(System::DateTime^ date);
+		public:
+			Commande();
+			void set_id_commande(int);
+			void set_id_client(int);
+			void set_id_adresse_livraison(int);
+			void set_id_adresse_facturation(int);
+			void set_date_emmision(System::DateTime^);
+			void set_date_livraison(System::DateTime^);
+			void set_date_reglement_solde(System::DateTime^);
+			void set_ref(System::String^);
+			int get_id_commande();
+			int get_id_client();
+			int get_id_adresse_livraison();
+			int get_adresse_facturation();
+			System::DateTime^ get_date_emission();
+			System::DateTime^ get_date_livraison();
+			System::DateTime^ get_date_reglement_solde();
+			System::String^ get_ref();
+			System::String^ SELECT();
+			System::String^ UPDATE();
+			System::String^ DELETE();
+			System::String^ INSERT();
+		protected:
+			~Commande() {
+				delete date_emission, date_livraison, date_reglement_solde;
+				delete ref;
+				delete this;
+			}
+	};
+}
 

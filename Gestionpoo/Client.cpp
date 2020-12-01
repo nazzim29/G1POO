@@ -1,68 +1,71 @@
 #include "Client.h"
+namespace Composant {
 
-void Client::init()
-{
-    System::Data::SqlClient::SqlCommand^ query = gcnew System::Data::SqlClient::SqlCommand("select nom ,prenom,date_naissance,date_achat from client where id = 4", cnx);
-    System::Data::SqlClient::SqlDataReader^ rd = query->ExecuteReader();
-    this->nom = rd->GetString(0);
-    this->prenom = rd->GetString(1);
-    this->date_naissance = rd->GetDateTime(2);
-    this->date_pr_achat = rd->GetDateTime(3);
-    query = gcnew System::Data::SqlClient::SqlCommand("select id_adresse from adresse_facturation_livraison where id = "+ this->id, cnx);
-    rd = query->ExecuteReader();
-    while(rd->Read()) {
-        addr->Add(gcnew Addr(rd->GetInt64(0),this->cnx));
+    using namespace System;
+    Composant::Client::Client()
+    {
+        this->id = -1;
+        this->nom = "RIEN";
+        this->prenom = "RIEN";
+        //initialiser les dates à la date actuelle
+        this->date_naiss = System::DateTime::Now;
+        this->date_pr_achat = System::DateTime::Now;
     }
 
-}
+    void Composant::Client::SetDate_naiss(System::DateTime^ date_naiss)
+    {
+        this->date_naiss = date_naiss;
+    }
 
-System::DateTime Client::Getdate_naissance()
-{
-    return System::DateTime();
-}
+    System::DateTime^ Composant::Client::GetDate_naiss(void)
+    {
+        return this->date_naiss;
+    }
 
-void Client::Setdate_naissance(System::DateTime date_naissance)
-{
-    throw gcnew System::NotImplementedException();
-}
+    void Composant::Client::SetDate_pr_achat(System::DateTime^ date_pr_achat)
+    {
+        this->date_pr_achat = date_pr_achat;
+    }
 
-System::DateTime Client::Getdate_pr_achat()
-{
-    return System::DateTime();
-}
+    System::DateTime^ Composant::Client::GetDate_pr_achat()
+    {
+        return this->date_pr_achat;
+    }
 
-void Client::Setdate_pr_achat(System::DateTime date_pr_achat)
-{
-    throw gcnew System::NotImplementedException();
-}
+    String^ Composant::Client::SELECT(void)
+    {
+        return "SELECT ID_Client, Nom_C, Prenom_C, Date_de_naissance, Date_du_premier_achat" +
+            "FROM Client;";
+    }
 
+    String^ Composant::Client::INSERT(void)
+    {
+        return "INSERT INTO Client " +
+            "(Nom_C, Prenom_C, Date_de_naissance, Date_du_premier_achat)" +
+            "VALUES('" + this->get_nom() + "', '" + this->get_prenom() + "', '" + date_to_string(this->GetDate_naiss()) + "','" + date_to_string(this->GetDate_pr_achat()) + "');SELECT @@IDENTITY;";
+    }
 
+    String^ Composant::Client::UPDATE(void)
+    {
+        return "UPDATE Client " +
+            "SET Nom_C = '" + this->get_nom() + "', Prenom_C = '" + this->get_prenom() + "', Date_de_naissance = '" + date_to_string(this->GetDate_naiss()) + "', Date_du_premier_achat = '" + date_to_string(this->GetDate_pr_achat()) + "' " +
+            "WHERE(ID_Client = " + this->get_id() + ");";
+    }
 
-System::Collections::Generic::List<Addr^>^ Client::Getaddr()
-{
-    throw gcnew System::NotImplementedException();
-    // TODO: insérer une instruction return ici
-}
-
-void Client::Setaddr(System::Collections::Generic::List<Addr^>^ addr)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Client::Client(int id)
-{
-    this->id = id;
-    this->cnx = cnx;
-    init();
-}
-
-Client::Client()
-{
-    new_client = true;
-
-}
-
-Client::~Client()
-{
-    throw gcnew System::NotImplementedException();
+    String^ Composant::Client::DELETE(void)
+    {
+        return "DELETE FROM Client " +
+            "WHERE(ID_Client = " + this->get_id() + ");";
+    }
+    //destructeur
+    Client::~Client()
+    {
+        delete this->date_naiss;
+        delete this->date_pr_achat;
+        delete this;
+    }
+    //une methode qui transforme une date de type DateTime à une date de type String
+    String^ Client::date_to_string(DateTime^ date) {
+        return date->Year + "" + date->Month + "" + date->Day;
+    }
 }
