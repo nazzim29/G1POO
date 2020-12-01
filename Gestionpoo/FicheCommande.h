@@ -53,6 +53,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button9;
 	protected:
 
 	private:
@@ -88,6 +89,7 @@ namespace Gestionpoo {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -275,12 +277,25 @@ namespace Gestionpoo {
 			this->button4->TabIndex = 26;
 			this->button4->UseVisualStyleBackColor = true;
 			// 
+			// button9
+			// 
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button9->Location = System::Drawing::Point(9, 10);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(53, 57);
+			this->button9->TabIndex = 28;
+			this->button9->UseVisualStyleBackColor = true;
+			// 
 			// FicheCommande
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(867, 588);
+			this->Controls->Add(this->button9);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->textBox2);
