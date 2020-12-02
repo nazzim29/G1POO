@@ -12,12 +12,11 @@ namespace Composant
 	}
 	String^ Ville::SELECTbyid(void)
 	{
-		return this->SELECT() + "where id = " + this->Id_Ville;
+		return this->SELECT() + "where id_ville = " + this->Id_Ville;
 	}
 	String^ Ville::INSERT(void)
 	{
-		return "INSERT INTO Ville (Nom_Ville) " +
-			"VALUES('" + this->Nom_Ville + "');select @@Identity";
+		return "if not exists(Select * from ville where nom_ville = '" + this->Nom_Ville + "') begin INSERT INTO Ville (Nom_Ville) VALUES('" + this->Nom_Ville + "') end select id_ville from ville where nom_ville  = '" + this->Nom_Ville + "'";
 	}
 	String^ Ville::UPDATE(void)
 	{

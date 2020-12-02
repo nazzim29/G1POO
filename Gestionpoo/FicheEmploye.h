@@ -62,6 +62,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::ComboBox^ comboBox2;
 
 
+
 	protected:
 
 
@@ -250,6 +251,8 @@ namespace Gestionpoo {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
+			this->comboBox1->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(672, 264);
 			this->comboBox1->Name = L"comboBox1";
@@ -280,6 +283,8 @@ namespace Gestionpoo {
 			// 
 			// comboBox2
 			// 
+			this->comboBox2->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
+			this->comboBox2->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Location = System::Drawing::Point(672, 203);
 			this->comboBox2->Name = L"comboBox2";
@@ -320,12 +325,26 @@ namespace Gestionpoo {
 			this->PerformLayout();
 
 		}
+		public:
+			void set_id(int i);
+			void set_nom(String^ nom);
+			void set_prenom(String^ prenom);
+			void set_adresse(String^ adresse);
+			void set_date(DateTime^ date);
+			void set_ville(int ville);
+			void set_sup(int id);
+			void set_comp_ville(DataTable^ v);
+			void set_comp_sup(DataTable^ s);
+			void mode_affichage();
+			int get_id();
+			String^ get_nom();
+			String^ get_prenom();
+			String^ get_adresse();
+			DateTime^ get_embauche();
+			String^ get_ville();
+			int get_sup();
+			bool havesup();
 
-		void set_id(int i);
-		void set_adresse(String^ adresse);
-		void set_date(DateTime date);
-		void set_ville(String^ ville);
-		void set_sup(String )
 #pragma endregion
 };
 }
