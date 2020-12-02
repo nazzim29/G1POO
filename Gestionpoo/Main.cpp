@@ -4,6 +4,8 @@
 using namespace System::Windows::Forms;
 using namespace Gestionpoo;
 
+
+[STAThread]
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
