@@ -2,14 +2,14 @@
 namespace Composant
 {
 	Adresse::Adresse(void) {
-		this->ID_Adresse =  -1;
+		this->ID_Adresse = -1;
 		this->adresse = "RIEN";
 		this->Id_Ville = -1;
 	}
 	String^ Adresse::SELECT(void)
 	{
 		return "SELECT id_adresse, adresse, Id_ville " +
-			"FROM Adresse where id_adresse = " +this->ID_Adresse +");";
+			"FROM Adresse where id_adresse = " + this->ID_Adresse + ";";
 	}
 	String^ Adresse::INSERT(void)
 	{
