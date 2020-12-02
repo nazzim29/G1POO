@@ -12,6 +12,7 @@ namespace Composant {
 		public:
 			Personnel();
 			String^ SELECT() override;
+			String^ SELECTbyid();
 			String^ INSERT() override;
 			String^ INSERTwithsup();
 			String^ UPDATE() override;

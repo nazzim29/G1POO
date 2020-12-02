@@ -12,6 +12,7 @@ namespace Composant
 		public:
 			Ville(void);
 			String^ SELECT(void);
+			String^ SELECTbyid(void);
 			String^ INSERT(void);
 			String^ UPDATE(void);
 			String^ DELETE(void);

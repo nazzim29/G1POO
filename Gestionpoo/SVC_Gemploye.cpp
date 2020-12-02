@@ -13,13 +13,28 @@ namespace Service
 		this->ds = this->cad->getRows(this->personnel->SELECT());
 		return this->ds;
 	}
-	String^ SVC_Gemploye::adressesemploye(int id_personne)
+	void SVC_Gemploye::afficher(int i)
 	{
-		this->ds = gcnew DataTable();
-		personnel->set_id(id_personne);
-		this->adresse->setIdAdresse(personnel->get_id_adresse());
-		this->ds = this->cad->getRows(this->adresse->SELECT());
-		return Convert::ToString(this->ds->Rows[0]->ItemArray[1]);
+		this->personnel->set_id(i);
+		DataTable^ aa = this->cad->getRows(personnel->SELECTbyid());
+		this->personnel->set_id_adresse(Convert::ToInt32(aa->Rows[0]->ItemArray[5]));
+		String^ date = Convert::ToString(aa->Rows[0]->ItemArray[3]);
+		this->personnel->set_date_embauche(DateTime(Convert::ToInt32(date->Substring(0, 4)), Convert::ToInt32(date->Substring(4, 2)), Convert::ToInt32(date->Substring(6, 2))));
+		this->personnel->set_nom(Convert::ToString(aa->Rows[0]->ItemArray[1]));
+		this->personnel->set_prenom(Convert::ToString(aa->Rows[0]->ItemArray[2]));
+		this->personnel->set_id_superieur(Convert::ToInt32(aa->Rows[0]->ItemArray[4]));
+		adressesemploye();
+	}
+	void SVC_Gemploye::adressesemploye()
+	{
+		DataTable^ dd = gcnew DataTable();
+		this->adresse->setIdAdresse(this->personnel->get_id_adresse());
+		dd = this->cad->getRows(this->adresse->SELECT());
+		this->adresse->setAdresse(Convert::ToString(dd->Rows[0]->ItemArray[1]));
+		this->adresse->setIdVille(Convert::ToInt32(dd->Rows[0]->ItemArray[1]));
+		this->ville->setIdVille(this->adresse->getIdVille());
+		dd = this->cad->getRows(this->ville->SELECTbyid());
+		this->ville->setNomVille(Convert::ToString(dd->Rows[0]->ItemArray[1]));
 	}
 	void SVC_Gemploye::ajouter(String^ nom, String^ prenom,System::DateTime^ date, int adresse, int ville,int superieur)
 	{

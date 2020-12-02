@@ -8,7 +8,11 @@ namespace Composant
 	String^ Ville::SELECT(void)
 	{
 		return "SELECT Id_Ville, Nom_ville " +
-			"FROM Ville " + ");";
+			"FROM Ville ";
+	}
+	String^ Ville::SELECTbyid(void)
+	{
+		return this->SELECT() + "where id = " + this->Id_Ville;
 	}
 	String^ Ville::INSERT(void)
 	{

@@ -15,6 +15,11 @@ namespace Composant {
         return "select id_personnel,nom_p,prenom_p,date_dembauche,id_personnel_supervise,id_adresse from [Personnel]";
     }
 
+    String^ Personnel::SELECTbyid()
+    {
+        return "select id_personnel,nom_p,prenom_p,date_dembauche,id_personnel_supervise,id_adresse from [Personnel] where id_personnel = "+ this->get_id();
+    }
+
     String^ Composant::Personnel::INSERT()
     {
         return "INSERT INTO Personnel(Nom_P, Prenom_P, Date_dembauche,id_personnel_supervise,id_adresse)" +

@@ -16,8 +16,7 @@ System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, S
 System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	FicheEmploye^ fe = gcnew FicheEmploye();
-	fe->set_adresse(gestionemploye->adressesemploye(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value)));
-	fe->set_id(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
+	gestionemploye->afficher(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
 	fe->ShowDialog();
 }
 

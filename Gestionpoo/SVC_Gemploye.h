@@ -2,6 +2,8 @@
 #include "CAD.h"
 #include "Personnel.h"
 #include "Adresse.h"
+#include "Ville.h"
+
 
 namespace Service
 {
@@ -15,11 +17,13 @@ namespace Service
 		Composant::CAD^ cad;
 		Composant::Personnel^ personnel;
 		Composant::Adresse^ adresse;
+		Composant::Ville^ ville;
 		DataTable^ ds;
+		void adressesemploye();
 	public:
 		SVC_Gemploye(void);
 		DataTable^ listeemploye();
-		String^ adressesemploye(int);
+		void afficher(int i);
 		void ajouter(String^ nom, String^ prenom, System::DateTime^ date, int adresse, int ville, int superieur);
 		void ajouter(String^ nom, String^ prenom, System::DateTime^ date, int adresse, int ville);
 		void modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, int adresse, int ville);
