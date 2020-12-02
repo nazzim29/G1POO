@@ -49,27 +49,42 @@ namespace Service
 	}
 	void SVC_Gemploye::ajouter(String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville, int superieur)
 	{
-		personnel = gcnew Composant::Personnel();
+		this->personnel = gcnew Composant::Personnel();
+		this->adresse = gcnew Composant::Adresse();
+		this->ville = gcnew Composant::Ville();
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
 		this->personnel->set_id_superieur(superieur);
 		this->ville->setNomVille(ville);
-
-		this->personnel->set_id_adresse();
-		id = this->cad->actionRowsID(this->personnel->INSERTwithsup());
+		this->ville->setIdVille(this->cad->actionRowsID(this->ville->INSERT()));
+		this->adresse->setAdresse(adresse);
+		this->adresse->setIdVille(this->ville->getIdVille());
+		this->adresse->setIdAdresse(this->cad->actionRowsID(this->adresse->INSERT()));
+		this->personnel->set_id_adresse(this->adresse->getIdAdresse());
+		this->cad->actionRows(this->personnel->INSERTwithsup());
 	}
 	void SVC_Gemploye::ajouter(String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville)
 	{
-		int id;
+		this->personnel = gcnew Composant::Personnel();
+		this->adresse = gcnew Composant::Adresse();
+		this->ville = gcnew Composant::Ville();
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
-		this->personnel->set_id_adresse(adresse);
-		id = this->cad->actionRowsID(this->personnel->INSERT());
+		this->ville->setNomVille(ville);
+		this->ville->setIdVille(this->cad->actionRowsID(this->ville->INSERT()));
+		this->adresse->setAdresse(adresse);
+		this->adresse->setIdVille(this->ville->getIdVille());
+		this->adresse->setIdAdresse(this->cad->actionRowsID(this->adresse->INSERT()));
+		this->personnel->set_id_adresse(this->adresse->getIdAdresse());
+		this->cad->actionRows(this->personnel->INSERT());
 	}
-	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, int adresse, int ville, int superieur)
+	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville, int superieur)
 	{
+		this->personnel = gcnew Composant::Personnel();
+		this->adresse = gcnew Composant::Adresse();
+		this->ville = gcnew Composant::Ville();
 		this->personnel->set_id(id_personne);
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
@@ -79,7 +94,7 @@ namespace Service
 		this->cad->actionRows(this->personnel->UPDATEwithsup());
 
 	}
-	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, int adresse, int ville)
+	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville)
 	{
 		this->personnel->set_id(id_personne);
 		this->personnel->set_nom(nom);

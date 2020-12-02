@@ -15,7 +15,9 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class Listepersonnel : public Gestionpoo::Liste
 	{
-	private:SVC_Gemploye^ gestionemploye = gcnew SVC_Gemploye();
+	private:
+		SVC_Gemploye^ gestionemploye = gcnew SVC_Gemploye();
+		FicheEmploye^ fe;
 	private:System::Windows::Forms::DataGridView^ dataGridView1;
 
 	public:

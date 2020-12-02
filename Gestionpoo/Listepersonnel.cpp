@@ -7,7 +7,7 @@ System::Void Gestionpoo::Listepersonnel::Liste_Load(System::Object^ sender, Syst
 
 System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	FicheEmploye^ fe = gcnew FicheEmploye();
+	fe = gcnew FicheEmploye();
 	fe->ShowDialog();
 	if (fe->havesup()) {
 		gestionemploye->ajouter(fe->get_nom(), fe->get_prenom(), fe->get_embauche(), fe->get_adresse(), fe->get_ville(), fe->get_sup());
@@ -15,13 +15,11 @@ System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, S
 	else {
 		gestionemploye->ajouter(fe->get_nom(), fe->get_prenom(), fe->get_embauche(), fe->get_adresse(), fe->get_ville());
 	}
-
-
 }
 
 System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	FicheEmploye^ fe = gcnew FicheEmploye();
+	fe = gcnew FicheEmploye();
 	gestionemploye->afficher(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
 	fe->set_nom(gestionemploye->personnel->get_nom());
 	fe->set_prenom(gestionemploye->personnel->get_prenom());
@@ -43,7 +41,13 @@ System::Void Gestionpoo::Listepersonnel::button3_Click(System::Object^ sender, S
 
 System::Void Gestionpoo::Listepersonnel::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	return System::Void();
+	button2_Click(sender, e);
+	if (fe->havesup()) {
+		gestionemploye->modifier(fe->get_id(),fe->get_nom(), fe->get_prenom(), fe->get_embauche(), fe->get_adresse(), fe->get_ville(), fe->get_sup());
+	}
+	else {
+		gestionemploye->modifier(fe->get_id(), fe->get_nom(), fe->get_prenom(), fe->get_embauche(), fe->get_adresse(), fe->get_ville());
+	}
 }
 
 System::Void Gestionpoo::Listepersonnel::button5_Click(System::Object^ sender, System::EventArgs^ e)
