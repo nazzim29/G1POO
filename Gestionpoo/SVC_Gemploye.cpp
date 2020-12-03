@@ -20,7 +20,6 @@ namespace Service
 	}
 	void SVC_Gemploye::afficher(int i)
 	{
-		//ja
 		this->personnel->set_id(i);
 		DataTable^ aa = this->cad->getRows(personnel->SELECTbyid());
 		this->personnel->set_id_adresse(Convert::ToInt32(aa->Rows[0]->ItemArray[5]));

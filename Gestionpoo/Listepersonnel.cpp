@@ -24,6 +24,8 @@ System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, S
 {
 	fe = gcnew FicheEmploye();
 	gestionemploye->afficher(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
+	fe->set_comp_sup(gestionemploye->cad->getRows("select id_Personnel, concat(nom_P,' ',prenom_P) as employe from personnel"));
+	fe->set_comp_ville(gestionemploye->cad->getRows("select id_ville,nom_ville from ville"));
 	fe->set_nom(gestionemploye->personnel->get_nom());
 	fe->set_prenom(gestionemploye->personnel->get_prenom());
 	fe->set_date(gestionemploye->personnel->get_date_embauche());
@@ -31,9 +33,7 @@ System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, S
 	fe->set_adresse(gestionemploye->adresse->getAdresse());
 	fe->set_ville(gestionemploye->ville->getIdVille());
 	fe->set_id(gestionemploye->personnel->get_id());
-	fe->set_comp_sup(gestionemploye->cad->getRows("select id_Personnel, concat(nom_P,' ',prenom_P) as employe from personnel"));
-	fe->set_comp_ville(gestionemploye->cad->getRows("select id_ville,nom_ville from ville"));
-	//fe->mode_affichage();
+	fe->mode_affichage();
 	fe->ShowDialog();
 }
 

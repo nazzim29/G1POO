@@ -259,6 +259,7 @@ namespace Gestionpoo {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(214, 27);
 			this->comboBox1->TabIndex = 32;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &FicheEmploye::comboBox1_SelectedIndexChanged);
 			// 
 			// label6
 			// 
@@ -350,5 +351,8 @@ namespace Gestionpoo {
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("value: "+Convert::ToString(comboBox1->SelectedValue));
+}
 };
 }
