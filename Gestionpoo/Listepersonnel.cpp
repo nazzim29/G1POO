@@ -2,11 +2,13 @@
 
 System::Void Gestionpoo::Listepersonnel::Liste_Load(System::Object^ sender, System::EventArgs^ e)
 {
+	//chargement de la liste des des employe
 	dataGridView1->DataSource = gestionemploye->listeemploye();
 }
 
 System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	//ajout d'un nouvel employe
 	fe = gcnew FicheEmploye();
 
 	fe->set_comp_sup(gestionemploye->cad->getRows("select id_Personnel, concat(nom_P,' ',prenom_P) as employe from personnel"));
@@ -25,6 +27,7 @@ System::Void Gestionpoo::Listepersonnel::button1_Click(System::Object^ sender, S
 
 System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	//affichage d'un personnel
 	fe = gcnew FicheEmploye();
 	gestionemploye->afficher(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
 	fe->set_comp_sup(gestionemploye->cad->getRows("select id_Personnel, concat(nom_P,' ',prenom_P) as employe from personnel"));
@@ -42,6 +45,7 @@ System::Void Gestionpoo::Listepersonnel::button2_Click(System::Object^ sender, S
 
 System::Void Gestionpoo::Listepersonnel::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	//supprimer un employe
 	gestionemploye->afficher(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
 	DialogResult result = MessageBox::Show("etes vous sur de vouloir supprimer l'employe " + this->gestionemploye->personnel->get_nom() + " " + this->gestionemploye->personnel->get_prenom() + "?", "Suppression d'un employe", MessageBoxButtons::OKCancel);
 	if (result == DialogResult::OK) {
@@ -53,6 +57,7 @@ System::Void Gestionpoo::Listepersonnel::button3_Click(System::Object^ sender, S
 
 System::Void Gestionpoo::Listepersonnel::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	//modifier un employe 
 	button2_Click(sender, e);
 	if (fe->validate) {
 		if (fe->havesup()) {
@@ -67,5 +72,6 @@ System::Void Gestionpoo::Listepersonnel::button4_Click(System::Object^ sender, S
 
 System::Void Gestionpoo::Listepersonnel::button5_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	//actualiser la liste des employe
 	Listepersonnel::Liste_Load(sender, e);
 }
