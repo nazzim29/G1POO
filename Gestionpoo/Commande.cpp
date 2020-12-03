@@ -59,8 +59,11 @@ namespace Composant {
 		return ref;
 	}
 	System::String^ Commande::SELECT() {
-		return "select id_commane,date_emission,reference,date_livraison,date_reglementsolde,id_client,id_adresse,id_adresse_facturation"+
-			"from commande where id_comande = " + this->id_commande;
+		return "select id_commande,date_emission,reference,date_livraison,date_reglementsolde,id_client,id_adresse,id_adresse_facturation"+
+			"from commande";
+	}
+	System::String^ Commande::SELECTbyid() {
+		return Commande::SELECT() + "where id_commande = " + this->id_commande;
 	}
 	System::String^ Commande::UPDATE() {
 		return "UPDATE commande " + "SET id_commande= '" + this->get_id_commande() + "', date_emission = '" + date_to_string(this->get_date_emission())

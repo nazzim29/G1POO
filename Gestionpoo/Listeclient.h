@@ -1,5 +1,5 @@
 #include "Liste.h"
-#include "Client.h"
+#include "SVC_Gclient.h"
 #include "FicheClient.h"
 #pragma once
 
@@ -14,7 +14,7 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class Listeclient : public Gestionpoo::Liste
 	{
-	private: Composant::Client^ client;
+	//private: Service::SVC_Gclient^ gestionclient = gcnew Service::SVC_Gclient();
 		public:
 		Listeclient(void)
 		{

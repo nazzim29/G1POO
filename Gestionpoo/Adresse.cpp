@@ -11,14 +11,28 @@ namespace Composant
 		return "SELECT id_adresse, adresse, Id_ville " +
 			"FROM Adresse where id_adresse = " + this->ID_Adresse + ";";
 	}
+	String^ Adresse::SELECTclient(void)
+	{
+		return "SELECT id_adresse, adresse, Id_ville,id_client " +
+			"FROM Adresse where id_adresse = " + this->ID_Adresse + ";";
+	}
 	String^ Adresse::INSERT(void)
 	{
 		return "INSERT INTO Adresse(adresse, id_ville) " +
 			"VALUES('" + this->adresse + "'," + this->Id_Ville + ");select id_adresse from adresse where adresse = '"+this->adresse+"'";
 	}
+	String^ Adresse::INSERTclient()
+	{
+		return "INSERT INTO Adresse(adresse, id_ville,id_client) " +
+			"VALUES('" + this->adresse + "'," + this->Id_Ville + ","+this->Id_Client+");select id_adresse from adresse where adresse = '" + this->adresse + "'";
+	}
 	String^ Adresse::UPDATE(void)
 	{
 		return "UPDATE Adresse SET id_ville =" + this->Id_Ville + ",adresse = '" +this->adresse+"' WHERE ID_Adresse = " + this->ID_Adresse;
+	}
+	String^ Adresse::UPDATEclient(void)
+	{
+		return "UPDATE Adresse SET id_ville =" + this->Id_Ville + ",adresse = '" + this->adresse + "',id_client = "+this->Id_Client+" WHERE ID_Adresse = " + this->ID_Adresse;
 	}
 	String^ Adresse::DELETE(void)
 	{

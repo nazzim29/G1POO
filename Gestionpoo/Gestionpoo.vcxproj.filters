@@ -102,7 +102,7 @@
     <ClCompile Include="SVC_Gclient.cpp">
       <Filter>Services</Filter>
     </ClCompile>
-    <ClCompile Include="MyForm.cpp">
+    <ClCompile Include="MyForm1.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -189,6 +189,9 @@
       <Filter>Composants</Filter>
     </ClInclude>
     <ClInclude Include="FichePayement.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="MyForm1.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

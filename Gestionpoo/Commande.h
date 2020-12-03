@@ -28,6 +28,7 @@ namespace Composant {
 			System::String^ SELECT();
 			System::String^ UPDATE();
 			System::String^ DELETE();
+			System::String^ SELECTbyid();
 			System::String^ INSERT();
 		protected:
 			~Commande() {

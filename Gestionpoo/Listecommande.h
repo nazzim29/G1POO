@@ -1,4 +1,7 @@
 #include "Liste.h"
+#include "SVC_Gcommande.h"
+#include "FicheCommande.h"
+#include "MyForm1.h"
 #pragma once
 
 
@@ -11,6 +14,7 @@ namespace Gestionpoo {
 	public ref class Listecommande : public Gestionpoo::Liste
 	{
 	public:
+		Service::SVC_Gcommande^ gestioncommande = gcnew Service::SVC_Gcommande();
 		Listecommande(void)
 		{
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
