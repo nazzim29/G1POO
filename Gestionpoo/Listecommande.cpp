@@ -14,7 +14,6 @@ System::Void Gestionpoo::Listecommande::button1_Click(System::Object^ sender, Sy
     lstcl->ShowDialog();
     if (lstcl->selected) {
         this->gestioncommande->client->set_id(lstcl->get_cl_sl());
-        this->gestioncommande.
         fc->set_adresse_list(this->gestioncommande->cad->getRows("SELECT id_adresse, concat(adresse,' ,',(SELECT ville from ville where ville.id_ville = adresse.id_ville)) as adresse from adresse where id_client = " + this->gestioncommande->client->get_id()));
 
     }

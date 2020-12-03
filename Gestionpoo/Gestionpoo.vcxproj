@@ -124,6 +124,7 @@
     <ClCompile Include="Choisir.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="Ficheadresse.cpp" />
     <ClCompile Include="FicheArticle.cpp" />
     <ClCompile Include="FicheClient.cpp" />
     <ClCompile Include="FicheCommande.cpp" />
@@ -154,6 +155,9 @@
     <ClInclude Include="Choisir.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Commande.h" />
+    <ClInclude Include="Ficheadresse.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="FicheArticle.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -203,6 +207,9 @@
     <ClInclude Include="Vivre.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ficheadresse.resx">
+      <DependentUpon>Ficheadresse.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FicheArticle.resx">
       <DependentUpon>FicheArticle.h</DependentUpon>
     </EmbeddedResource>

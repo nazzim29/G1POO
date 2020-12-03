@@ -26,7 +26,7 @@ namespace Service {
 		SVC_Gcommande();
 		DataTable^ listecommande();
 		void get_addr();
-		void set_addr(Data)
+		void set_addr(DataTable^);
 		void afficher(int);
 		void ajouter(DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);
 		void modifier(int, DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);

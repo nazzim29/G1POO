@@ -344,7 +344,6 @@ namespace Gestionpoo {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"FicheCommande";
 			this->Text = L"FicheCommande";
-			this->Load += gcnew System::EventHandler(this, &FicheCommande::FicheCommande_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

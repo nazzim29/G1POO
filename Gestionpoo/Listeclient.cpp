@@ -2,18 +2,16 @@
 
 System::Void Gestionpoo::Listeclient::Liste_Load(System::Object^ sender, System::EventArgs^ e)
 {
-	SqlConnection^ dbcnx = gcnew SqlConnection("Server=tcp:poo.database.windows.net,1433;Initial Catalog=Projetg1;Persist Security Info=False;User ID=nazim;Password=uLafdnE6-;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-	SqlCommand^ query = gcnew SqlCommand("SELECT ID , Nom ,Prenom FROM [dbo].[client]", dbcnx);
-	SqlDataAdapter^ adapter = gcnew SqlDataAdapter(query);
-	DataTable^ dt = gcnew DataTable();
-	adapter->Fill(dt);
-	dataGridView1->DataSource = dt;
+	dataGridView1->DataSource = this->gestionclient->listeclients();
 }
 
 System::Void Gestionpoo::Listeclient::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	//FicheClient^ ficheclient = gcnew FicheClient(client);
-	//ficheclient->ShowDialog();
+	FicheClient^ fc = gcnew FicheClient();
+	fc->ShowDialog();
+	if (fc->valider) {
+		gestionclient->ajouter(fc->get_nom(), fc->get_prenom(), fc->get_date_naissance(), fc->get_pr_achat(), fc->get_adresses());
+	}
 	Liste_Load(sender, e);
 }
 

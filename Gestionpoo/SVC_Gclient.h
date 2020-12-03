@@ -9,13 +9,14 @@ namespace Service {
 	using namespace System::Data::SqlClient;
 	using namespace System::Xml;
 	using namespace System;
+	using namespace System::Collections::Generic;
 	ref class SVC_Gclient
 	{
 	private:
 		Composant::CAD^ cad;
 		Composant::Client^ client;
-		array<Composant::Adresse^>^ adrclient;
-		array<Composant::Ville^>^ ville;
+		List<Composant::Adresse^>^ adrclient;
+		List<Composant::Ville^>^ ville;
 		DataTable^ dt;
 
 	public:
@@ -23,7 +24,7 @@ namespace Service {
 		DataTable^ listeclients();
 		DataTable^ adressesClient(int);
 		void afficher(int);
-		void ajouter(String^, String^, DateTime^, DateTime^);
+		void ajouter(String^, String^, DateTime^, DateTime^,DataTable^);
 		void modifier(int, String^, String^, DateTime^, DateTime^);
 		void supprimer(int);
 	};

@@ -14,8 +14,10 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class Listeclient : public Gestionpoo::Liste
 	{
-	//private: Service::SVC_Gclient^ gestionclient = gcnew Service::SVC_Gclient();
+
+		private: Service::SVC_Gclient^ gestionclient = gcnew Service::SVC_Gclient();
 		public:
+			
 		Listeclient(void)
 		{
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
