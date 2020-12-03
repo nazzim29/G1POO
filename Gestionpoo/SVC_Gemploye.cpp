@@ -52,6 +52,7 @@ namespace Service
 		this->personnel = gcnew Composant::Personnel();
 		this->adresse = gcnew Composant::Adresse();
 		this->ville = gcnew Composant::Ville();
+		this->cad->actionRows("BEGIN TRAN");
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
@@ -63,6 +64,7 @@ namespace Service
 		this->adresse->setIdAdresse(this->cad->actionRowsID(this->adresse->INSERT()));
 		this->personnel->set_id_adresse(this->adresse->getIdAdresse());
 		this->cad->actionRows(this->personnel->INSERTwithsup());
+		this->cad->actionRows("COMMIT");
 	}
 	void SVC_Gemploye::ajouter(String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville)
 	{
@@ -73,40 +75,50 @@ namespace Service
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
 		this->ville->setNomVille(ville);
+		this->cad->actionRows("BEGIN TRAN");
 		this->ville->setIdVille(this->cad->actionRowsID(this->ville->INSERT()));
 		this->adresse->setAdresse(adresse);
 		this->adresse->setIdVille(this->ville->getIdVille());
 		this->adresse->setIdAdresse(this->cad->actionRowsID(this->adresse->INSERT()));
 		this->personnel->set_id_adresse(this->adresse->getIdAdresse());
 		this->cad->actionRows(this->personnel->INSERT());
+		this->cad->actionRows("COMMIT TRAN");
 	}
-	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville, int superieur)
+	void SVC_Gemploye::modifier(String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville, int superieur)
 	{
-		this->personnel = gcnew Composant::Personnel();
-		this->adresse = gcnew Composant::Adresse();
-		this->ville = gcnew Composant::Ville();
-		this->personnel->set_id(id_personne);
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
-		this->personnel->set_id_adresse(adresse);
 		this->personnel->set_id_superieur(superieur);
+		this->adresse->setAdresse(adresse);
+		this->ville->setNomVille(ville);
+		this->cad->actionRows("BEGIN TRAN");
+		this->ville->setIdVille(this->cad->actionRowsID(this->ville->INSERT()));
+		this->adresse->setIdVille(this->ville->getIdVille());
+		this->cad->actionRows(this->adresse->UPDATE());
 		this->cad->actionRows(this->personnel->UPDATEwithsup());
-
+		this->cad->actionRows("COMMIT");
 	}
-	void SVC_Gemploye::modifier(int id_personne, String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville)
+	void SVC_Gemploye::modifier(String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville)
 	{
-		this->personnel->set_id(id_personne);
 		this->personnel->set_nom(nom);
 		this->personnel->set_prenom(prenom);
 		this->personnel->set_date_embauche(date);
-		this->personnel->set_id_adresse(adresse);
+		this->adresse->setAdresse(adresse);
+		this->ville->setNomVille(ville);
+		this->cad->actionRows("BEGIN TRAN");
+		this->ville->setIdVille(this->cad->actionRowsID(this->ville->INSERT()));
+		this->adresse->setIdVille(this->ville->getIdVille());
+		this->cad->actionRows(this->adresse->UPDATE());
 		this->cad->actionRows(this->personnel->UPDATE());
+		this->cad->actionRows("COMMIT");
 
 	}
-	void SVC_Gemploye::supprimer(int idPersonne)
+	void SVC_Gemploye::supprimer()
 	{
-		this->personnel->set_id(idPersonne);
+		this->cad->actionRows("BEGIN TRAN");
 		this->cad->actionRows(this->personnel->DELETE());
+		this->cad->actionRows(this->adresse->DELETE());
+		this->cad->actionRows("COMMIT TRAN");
 	}
 }

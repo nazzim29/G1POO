@@ -236,6 +236,7 @@ namespace Gestionpoo {
 			this->button6->Text = L"Valider  ";
 			this->button6->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &FicheEmploye::button6_Click);
 			// 
 			// button5
 			// 
@@ -346,5 +347,8 @@ namespace Gestionpoo {
 		bool havesup();
 
 #pragma endregion
-	};
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+};
 }
