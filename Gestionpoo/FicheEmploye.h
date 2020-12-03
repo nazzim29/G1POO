@@ -14,6 +14,7 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class FicheEmploye : public System::Windows::Forms::Form
 	{
+	public: bool validate = false;
 	public:
 		FicheEmploye(void)
 		{
@@ -60,6 +61,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -97,6 +99,7 @@ namespace Gestionpoo {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -153,7 +156,7 @@ namespace Gestionpoo {
 			this->datenais->Margin = System::Windows::Forms::Padding(4);
 			this->datenais->Name = L"datenais";
 			this->datenais->Size = System::Drawing::Size(257, 27);
-			this->datenais->TabIndex = 17;
+			this->datenais->TabIndex = 3;
 			this->datenais->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
 			// 
 			// txtprenom
@@ -163,7 +166,7 @@ namespace Gestionpoo {
 			this->txtprenom->Margin = System::Windows::Forms::Padding(4);
 			this->txtprenom->Name = L"txtprenom";
 			this->txtprenom->Size = System::Drawing::Size(167, 20);
-			this->txtprenom->TabIndex = 16;
+			this->txtprenom->TabIndex = 2;
 			// 
 			// label3
 			// 
@@ -181,10 +184,11 @@ namespace Gestionpoo {
 			// 
 			this->txtnom->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->txtnom->Location = System::Drawing::Point(313, 134);
-			this->txtnom->Margin = System::Windows::Forms::Padding(4);
+			this->txtnom->Margin = System::Windows::Forms::Padding(10);
 			this->txtnom->Name = L"txtnom";
 			this->txtnom->Size = System::Drawing::Size(167, 20);
-			this->txtnom->TabIndex = 14;
+			this->txtnom->TabIndex = 1;
+			this->txtnom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label2
 			// 
@@ -218,7 +222,7 @@ namespace Gestionpoo {
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(439, 20);
-			this->textBox3->TabIndex = 26;
+			this->textBox3->TabIndex = 6;
 			// 
 			// button6
 			// 
@@ -232,7 +236,7 @@ namespace Gestionpoo {
 			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(143, 36);
-			this->button6->TabIndex = 30;
+			this->button6->TabIndex = 8;
 			this->button6->Text = L"Valider  ";
 			this->button6->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button6->UseVisualStyleBackColor = true;
@@ -255,11 +259,11 @@ namespace Gestionpoo {
 			this->comboBox1->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboBox1->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->ItemHeight = 19;
 			this->comboBox1->Location = System::Drawing::Point(672, 264);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(214, 27);
 			this->comboBox1->TabIndex = 32;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &FicheEmploye::comboBox1_SelectedIndexChanged);
 			// 
 			// label6
 			// 
@@ -279,7 +283,7 @@ namespace Gestionpoo {
 			this->checkBox1->Location = System::Drawing::Point(483, 205);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(182, 23);
-			this->checkBox1->TabIndex = 34;
+			this->checkBox1->TabIndex = 4;
 			this->checkBox1->Text = L"supérieur hiérarchique :";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			// 
@@ -291,7 +295,25 @@ namespace Gestionpoo {
 			this->comboBox2->Location = System::Drawing::Point(672, 203);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(214, 27);
-			this->comboBox2->TabIndex = 35;
+			this->comboBox2->TabIndex = 5;
+			// 
+			// button1
+			// 
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Calibri", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button1->Location = System::Drawing::Point(943, 13);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(30, 30);
+			this->button1->TabIndex = 34;
+			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FicheEmploye::button1_Click);
 			// 
 			// FicheEmploye
 			// 
@@ -299,6 +321,7 @@ namespace Gestionpoo {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(986, 419);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->label6);
@@ -349,10 +372,11 @@ namespace Gestionpoo {
 
 #pragma endregion
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+		validate = true;
 		this->Close();
 	}
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show("value: "+Convert::ToString(comboBox1->SelectedValue));
-}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
 };
 }
