@@ -3,6 +3,7 @@
 #include"Client.h"
 #include"Adresse.h"
 #include"Ville.h"
+#include <tuple>
 
 namespace Service {
 	using namespace System::Data;
@@ -22,6 +23,10 @@ namespace Service {
 	public:
 		SVC_Gclient();
 		DataTable^ listeclients();
+		DataTable^ listeville();
+		List<Composant::Ville^>^ get_ville();
+		List<Composant::Adresse^>^ get_adrclient();
+		std::tuple<int,String^, String^, DateTime^, DateTime^, List<Composant::Adresse^>^, List<Composant::Ville^>^> get_client();
 		DataTable^ adressesClient(int);
 		void afficher(int);
 		void ajouter(String^, String^, DateTime^, DateTime^,DataTable^);

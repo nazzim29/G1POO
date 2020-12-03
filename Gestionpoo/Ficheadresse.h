@@ -79,6 +79,7 @@ namespace Gestionpoo {
 			this->button1->Text = L"Valider";
 			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Ficheadresse::button1_Click);
 			// 
 			// label1
 			// 
@@ -88,7 +89,6 @@ namespace Gestionpoo {
 			this->label1->Size = System::Drawing::Size(61, 19);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Adresse";
-			this->label1->Click += gcnew System::EventHandler(this, &Ficheadresse::label1_Click);
 			// 
 			// textBox1
 			// 
@@ -100,6 +100,8 @@ namespace Gestionpoo {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::SuggestAppend;
+			this->comboBox1->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
 			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(110, 138);
@@ -155,6 +157,7 @@ namespace Gestionpoo {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Ficheadresse";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Ficheadresse";
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -165,5 +168,10 @@ namespace Gestionpoo {
 			String^ get_adresse();
 			String^ get_ville();
 			void set_comp_ville(DataTable^);
+			void set_ville(String^);
+			void set_adresse(String^);
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }

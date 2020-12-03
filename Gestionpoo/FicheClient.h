@@ -1,7 +1,7 @@
 #pragma once
-#include "Client.h"
-
-
+#include "Ficheadresse.h"
+#include "Adresse.h"
+#include "Ville.h"
 
 
 namespace Gestionpoo {
@@ -12,14 +12,22 @@ namespace Gestionpoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Description résumée de FicheClient
 	/// </summary>
 	public ref class FicheClient : public System::Windows::Forms::Form
 	{
-	public:
-		bool valider = false;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
+		public:
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Adresse;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ville;
+		public:
+			System::Collections::Generic::List<int>^ del_add = gcnew System::Collections::Generic::List<int>();
+			DataTable^ comp_ville;
+			bool valider = false;
+
 		FicheClient()
 		{
 			InitializeComponent();
@@ -98,6 +106,9 @@ namespace Gestionpoo {
 			this->dateachat = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Adresse = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Ville = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -252,6 +263,10 @@ namespace Gestionpoo {
 			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
 			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->ID, this->Adresse,
+					this->Ville
+			});
 			this->dataGridView1->Location = System::Drawing::Point(12, 275);
 			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
@@ -261,6 +276,24 @@ namespace Gestionpoo {
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(921, 216);
 			this->dataGridView1->TabIndex = 15;
+			// 
+			// ID
+			// 
+			this->ID->HeaderText = L"ID";
+			this->ID->Name = L"ID";
+			this->ID->ReadOnly = true;
+			// 
+			// Adresse
+			// 
+			this->Adresse->HeaderText = L"Adresse";
+			this->Adresse->Name = L"Adresse";
+			this->Adresse->ReadOnly = true;
+			// 
+			// Ville
+			// 
+			this->Ville->HeaderText = L"Ville";
+			this->Ville->Name = L"Ville";
+			this->Ville->ReadOnly = true;
 			// 
 			// button3
 			// 
@@ -272,6 +305,7 @@ namespace Gestionpoo {
 			this->button3->Size = System::Drawing::Size(50, 50);
 			this->button3->TabIndex = 17;
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &FicheClient::button3_Click);
 			// 
 			// button4
 			// 
@@ -283,6 +317,7 @@ namespace Gestionpoo {
 			this->button4->Size = System::Drawing::Size(50, 50);
 			this->button4->TabIndex = 18;
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &FicheClient::button4_Click);
 			// 
 			// button2
 			// 
@@ -294,6 +329,7 @@ namespace Gestionpoo {
 			this->button2->Size = System::Drawing::Size(50, 50);
 			this->button2->TabIndex = 16;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FicheClient::button2_Click);
 			// 
 			// button5
 			// 
@@ -374,13 +410,13 @@ namespace Gestionpoo {
 			DateTime^ get_date_naissance();
 			DateTime^ get_pr_achat();
 			DataTable^ get_adresses();
-			void set_nom(String^);
-			void set_prenom(String^);
-			void set_date_naissance(DateTime^);
-			void set_pr_achat(DateTime^);
-			void get_adresses(DataTable^);
+			void set_info(int, String^, String^, DateTime^, DateTime^, List<Composant::Adresse^>^, List<Composant::Ville^>^);
 
 
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

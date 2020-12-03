@@ -35,14 +35,19 @@ namespace Composant {
     String^ Composant::Client::SELECT(void)
     {
         return "SELECT ID_Client, Nom_C, Prenom_C, Date_de_naissance, Date_du_premier_achat" +
-            " FROM Client;";
+            " FROM Client";
+    }
+
+    String^ Client::SELECTbyid()
+    {
+        return this->SELECT() + " where id_client = " + this->id;
     }
 
     String^ Composant::Client::INSERT(void)
     {
         return "INSERT INTO Client " +
             "(Nom_C, Prenom_C, Date_de_naissance, Date_du_premier_achat)" +
-            "VALUES('" + this->get_nom() + "', '" + this->get_prenom() + "', '" + date_to_string(this->GetDate_naiss()) + "','" + date_to_string(this->GetDate_pr_achat()) + "');SELECT @@IDENTITY;";
+            "VALUES('" + this->get_nom() + "', '" + this->get_prenom() + "', convert(datetime,'" + date_to_string(this->GetDate_naiss()) + "',103),convert(datetime,'" + date_to_string(this->GetDate_pr_achat()) + "',103));SELECT id_client from client where id_client = "+ this->id;
     }
 
     String^ Composant::Client::UPDATE(void)
@@ -66,6 +71,6 @@ namespace Composant {
     }
     //une methode qui transforme une date de type DateTime à une date de type String
     String^ Client::date_to_string(DateTime^ date) {
-        return date->Year + "" + date->Month + "" + date->Day;
+        return date->Day + "/" + date->Month + "/" + date->Year;
     }
 }

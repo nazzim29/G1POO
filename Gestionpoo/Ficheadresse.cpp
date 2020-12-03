@@ -13,4 +13,16 @@ System::String^ Gestionpoo::Ficheadresse::get_ville()
 void Gestionpoo::Ficheadresse::set_comp_ville(DataTable^ t)
 {
     comboBox1->DataSource = t;
+    comboBox1->ValueMember = "id_ville";
+    comboBox1->DisplayMember = "nom_ville";
+}
+
+void Gestionpoo::Ficheadresse::set_ville(String^ d)
+{
+    this->comboBox1->SelectedIndex = comboBox1->FindString(d);
+}
+
+void Gestionpoo::Ficheadresse::set_adresse(String^ d)
+{
+    this->textBox1->Text = d;
 }

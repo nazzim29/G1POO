@@ -8,13 +8,14 @@ namespace Composant
 	}
 	String^ Adresse::SELECT(void)
 	{
-		return "SELECT id_adresse, adresse, Id_ville " +
-			"FROM Adresse where id_adresse = " + this->ID_Adresse + ";";
+		return "SELECT id_adresse, adresse, Id_ville FROM Adresse ";
 	}
-	String^ Adresse::SELECTclient(void)
+	String^ Adresse::SELECTbyid(void)
 	{
-		return "SELECT id_adresse, adresse, Id_ville,id_client " +
-			"FROM Adresse where id_adresse = " + this->ID_Adresse + ";";
+		return this->SELECT() +"where id_adresse = " + this->ID_Adresse;
+	}
+	String^ Adresse::SELECTbyidclient() {
+		return this->SELECT() + "where id_client = " + this->Id_Client;
 	}
 	String^ Adresse::INSERT(void)
 	{
