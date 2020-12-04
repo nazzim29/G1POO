@@ -160,6 +160,7 @@ namespace Gestionpoo {
 			this->txtnom->Name = L"txtnom";
 			this->txtnom->Size = System::Drawing::Size(125, 20);
 			this->txtnom->TabIndex = 3;
+			this->txtnom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// txtprenom
 			// 
@@ -168,6 +169,7 @@ namespace Gestionpoo {
 			this->txtprenom->Name = L"txtprenom";
 			this->txtprenom->Size = System::Drawing::Size(125, 20);
 			this->txtprenom->TabIndex = 5;
+			this->txtprenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label3
 			// 

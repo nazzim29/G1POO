@@ -167,6 +167,7 @@ namespace Gestionpoo {
 			this->txtprenom->Name = L"txtprenom";
 			this->txtprenom->Size = System::Drawing::Size(167, 20);
 			this->txtprenom->TabIndex = 2;
+			this->txtprenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label3
 			// 
@@ -258,6 +259,7 @@ namespace Gestionpoo {
 			// 
 			this->comboBox1->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboBox1->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
+			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->ItemHeight = 19;
 			this->comboBox1->Location = System::Drawing::Point(672, 264);
@@ -291,6 +293,7 @@ namespace Gestionpoo {
 			// 
 			this->comboBox2->AutoCompleteMode = System::Windows::Forms::AutoCompleteMode::Suggest;
 			this->comboBox2->AutoCompleteSource = System::Windows::Forms::AutoCompleteSource::ListItems;
+			this->comboBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Location = System::Drawing::Point(672, 203);
 			this->comboBox2->Name = L"comboBox2";

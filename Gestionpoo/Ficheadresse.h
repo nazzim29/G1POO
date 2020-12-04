@@ -97,6 +97,7 @@ namespace Gestionpoo {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(310, 20);
 			this->textBox1->TabIndex = 2;
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// comboBox1
 			// 
