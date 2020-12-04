@@ -36,6 +36,7 @@ namespace Composant
 		System::String^ getCouleur(void);
 		//methode de mappage pour la table Article
 		System::String^ SELECT(void);
+		System::String^ SELECTbyID(void);
 		System::String^ INSERT(void);
 		System::String^ UPDATE(void);
 		System::String^ DELETE(void);

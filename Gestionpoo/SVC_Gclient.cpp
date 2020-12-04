@@ -50,7 +50,7 @@ namespace Service {
 		this->client->set_nom(Convert::ToString(c->Rows[0]->ItemArray[1]));
 		this->client->set_prenom(Convert::ToString(c->Rows[0]->ItemArray[2]));
 		this->client->SetDate_naiss(DateTime(Convert::ToInt32(date_naiss->Substring(6, 4)), Convert::ToInt32(date_naiss->Substring(3, 2)), Convert::ToInt32(date_naiss->Substring(0, 2))));
-		this->client->SetDate_pr_achat(DateTime(Convert::ToInt32(date_prachat->Substring(6, 4)), Convert::ToInt32(date_naiss->Substring(3, 2)), Convert::ToInt32(date_naiss->Substring(0, 2))));
+		this->client->SetDate_pr_achat(DateTime(Convert::ToInt32(date_prachat->Substring(6, 4)), Convert::ToInt32(date_prachat->Substring(3, 2)), Convert::ToInt32(date_prachat->Substring(0, 2))));
 		this->adrclient = gcnew List<Composant::Adresse^>();
 		this->ville = gcnew List<Composant::Ville^>();
 		Composant::Adresse^ a = gcnew Composant::Adresse();

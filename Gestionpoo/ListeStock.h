@@ -1,4 +1,6 @@
 #include "Liste.h"
+#include "SVC_Gstock.h"
+#include "FicheArticle.h"
 #pragma once
 
 
@@ -12,6 +14,7 @@ namespace Gestionpoo {
 	/// </summary>
 	public ref class ListeStock : public Gestionpoo::Liste
 	{
+	private: Service::SVC_Gstock^ gestionarticle = gcnew Service::SVC_Gstock();
 	public: ListeStock() {
 		System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 		System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
