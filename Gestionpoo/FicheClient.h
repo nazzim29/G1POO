@@ -2,6 +2,7 @@
 #include "Ficheadresse.h"
 #include "Adresse.h"
 #include "Ville.h"
+#include "Client.h"
 
 
 namespace Gestionpoo {
@@ -24,10 +25,11 @@ namespace Gestionpoo {
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Adresse;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ville;
 		public:
+
 			System::Collections::Generic::List<int>^ del_add = gcnew System::Collections::Generic::List<int>();
 			DataTable^ comp_ville;
 			bool valider = false;
-
+			Composant::Client^ ccc;
 		FicheClient()
 		{
 			InitializeComponent();
@@ -405,12 +407,14 @@ namespace Gestionpoo {
 		private: System::Void FicheClient_Load(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
 		public:
+			int get_id();
 			String^ get_nom();
 			String^ get_prenom();
 			DateTime^ get_date_naissance();
 			DateTime^ get_pr_achat();
 			DataTable^ get_adresses();
-			void set_info(int, String^, String^, DateTime^, DateTime^, List<Composant::Adresse^>^, List<Composant::Ville^>^);
+			void set_client(Composant::Client^);
+			void set_adresses(System::Collections::Generic::List<Composant::Adresse^>^ a, System::Collections::Generic::List<Composant::Ville^>^ v);
 
 
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e);

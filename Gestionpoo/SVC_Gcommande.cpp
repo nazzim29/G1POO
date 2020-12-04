@@ -16,7 +16,7 @@ namespace Service {
 	}
 	void SVC_Gcommande::get_addr()
 	{
-		adresse->Add(gcnew Composant::Adresse());
+		/*adresse->Add(gcnew Composant::Adresse());
 		adresse[0]->setIdClient(this->client->get_id());
 		DataTable^ dt = this->cad->getRows(adresse[0]->SELECTclient());
 		for (int i = 1; i < dt->Rows->Count; i++) {
@@ -35,7 +35,7 @@ namespace Service {
 			v->setNomVille(Convert::ToString(dt->Rows[0]->ItemArray[1]));
 			ville->Add(v);
 
-		}
+		}*/
 	}
 	void SVC_Gcommande::set_addr(DataTable^)
 	{

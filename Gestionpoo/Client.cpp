@@ -47,7 +47,7 @@ namespace Composant {
     {
         return "INSERT INTO Client " +
             "(Nom_C, Prenom_C, Date_de_naissance, Date_du_premier_achat)" +
-            "VALUES('" + this->get_nom() + "', '" + this->get_prenom() + "', convert(datetime,'" + date_to_string(this->GetDate_naiss()) + "',103),convert(datetime,'" + date_to_string(this->GetDate_pr_achat()) + "',103));SELECT id_client from client where id_client = "+ this->id;
+            "VALUES('" + this->get_nom() + "', '" + this->get_prenom() + "', convert(datetime,'" + date_to_string(this->GetDate_naiss()) + "',103),convert(datetime,'" + date_to_string(this->GetDate_pr_achat()) + "',103));SELECT id_client from client where nom_c = '"+ this->nom+"' and prenom_c = '"+this->prenom+"'" ;
     }
 
     String^ Composant::Client::UPDATE(void)

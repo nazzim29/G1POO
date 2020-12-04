@@ -1,4 +1,5 @@
 #include "FicheClient.h"
+#include<chrono>
 
 System::Void Gestionpoo::FicheClient::FicheClient_Load(System::Object^ sender, System::EventArgs^ e)
 {
@@ -7,6 +8,11 @@ System::Void Gestionpoo::FicheClient::FicheClient_Load(System::Object^ sender, S
 System::Void Gestionpoo::FicheClient::button5_Click(System::Object^ sender, System::EventArgs^ e)
 {
     this->Close();
+}
+
+int Gestionpoo::FicheClient::get_id()
+{
+    return Convert::ToInt32(lblid->Text);
 }
 
 System::String^ Gestionpoo::FicheClient::get_nom()
@@ -41,15 +47,23 @@ System::Data::DataTable^ Gestionpoo::FicheClient::get_adresses()
     return d;
 }
 
-void Gestionpoo::FicheClient::set_info(int id, String^ nom, String^ prenom, System::DateTime^ naissance, System::DateTime^ pr_achat, List<Composant::Adresse^>^ adresses, List<Composant::Ville^>^ ville)
+void Gestionpoo::FicheClient::set_client(Composant::Client^ c)
 {
-    lblid->Text = Convert::ToString(id);
-    txtnom->Text = nom;
-    txtprenom->Text = prenom;
-    dateachat->Value = System::DateTime(naissance->Year, naissance->Month, naissance->Day);
-    datenais->Value = System::DateTime(pr_achat->Year, pr_achat->Month, naissance->Day);
+    this->ccc = c;
+    this->lblid->Text = Convert::ToString(ccc->get_id());
+    this->txtnom->Text = ccc->get_nom();
+    this->txtprenom->Text = ccc->get_prenom();
+    this->dateachat->Value = DateTime(ccc->GetDate_pr_achat()->Year, ccc->GetDate_pr_achat()->Month, ccc->GetDate_pr_achat()->Day);
+    this->datenais->Value = DateTime(ccc->GetDate_naiss()->Year, ccc->GetDate_naiss()->Month, ccc->GetDate_naiss()->Day);
 }
 
+
+void Gestionpoo::FicheClient::set_adresses(System::Collections::Generic::List<Composant::Adresse^>^ a, System::Collections::Generic::List<Composant::Ville^>^v)
+{
+    for (int i = 0; i < a->Count; i++) {
+        this->dataGridView1->Rows->Add(a[i]->getIdAdresse(), a[i]->getAdresse(), v[i]->getNomVille());
+    }
+}
 
 System::Void Gestionpoo::FicheClient::button6_Click(System::Object^ sender, System::EventArgs^ e)
 {
