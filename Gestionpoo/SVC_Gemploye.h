@@ -31,6 +31,5 @@ namespace Service
 		void modifier(int id,String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville);
 		void modifier(int id,String^ nom, String^ prenom, System::DateTime^ date, String^ adresse, String^ ville, int superieur);
 		void supprimer();
-		void 
 	};
 }
