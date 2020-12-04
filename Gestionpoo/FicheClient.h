@@ -161,6 +161,7 @@ namespace Gestionpoo {
 			this->txtnom->Size = System::Drawing::Size(125, 20);
 			this->txtnom->TabIndex = 3;
 			this->txtnom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtnom->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &FicheClient::alpha_only);
 			// 
 			// txtprenom
 			// 
@@ -170,6 +171,7 @@ namespace Gestionpoo {
 			this->txtprenom->Size = System::Drawing::Size(125, 20);
 			this->txtprenom->TabIndex = 5;
 			this->txtprenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtprenom->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &FicheClient::alpha_only);
 			// 
 			// label3
 			// 
@@ -206,7 +208,7 @@ namespace Gestionpoo {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(19, 127);
+			this->label5->Location = System::Drawing::Point(19, 128);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(75, 19);
 			this->label5->TabIndex = 9;
@@ -423,6 +425,6 @@ namespace Gestionpoo {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
-
+	private: void alpha_only(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

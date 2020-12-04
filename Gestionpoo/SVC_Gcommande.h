@@ -5,6 +5,9 @@
 #include"Article.h"
 #include "Commande.h"
 #include "Ville.h"
+
+
+
 namespace Service {
 	using namespace System::Data;
 	using namespace System::Data::SqlClient;

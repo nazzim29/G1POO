@@ -2,7 +2,7 @@
 
 System::Void Gestionpoo::Listecommande::Liste_Load(System::Object^ sender, System::EventArgs^ e)
 {
-    System::Data::DataTable^ ds = this->gestioncommande->cad->getRows(this->gestioncommande->commande->SELECT());
+    System::Data::DataTable^ ds = this->gestioncommande->listecommande();
     this->dataGridView1->DataSource = ds;
 }
 

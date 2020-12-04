@@ -272,6 +272,7 @@ namespace Gestionpoo {
 			this->ht->Name = L"ht";
 			this->ht->Size = System::Drawing::Size(124, 19);
 			this->ht->TabIndex = 29;
+			this->ht->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &FicheArticle::ht_KeyPress);
 			// 
 			// tva
 			// 
@@ -281,6 +282,7 @@ namespace Gestionpoo {
 			this->tva->Name = L"tva";
 			this->tva->Size = System::Drawing::Size(124, 19);
 			this->tva->TabIndex = 31;
+			this->tva->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &FicheArticle::tva_KeyPress);
 			// 
 			// button2
 			// 
@@ -314,9 +316,9 @@ namespace Gestionpoo {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(98, 289);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(75, 19);
+			this->label2->Size = System::Drawing::Size(59, 19);
 			this->label2->TabIndex = 35;
-			this->label2->Text = L"Reference";
+			this->label2->Text = L"Couleur";
 			// 
 			// txtcouleur
 			// 
@@ -326,7 +328,6 @@ namespace Gestionpoo {
 			this->txtcouleur->Name = L"txtcouleur";
 			this->txtcouleur->Size = System::Drawing::Size(125, 19);
 			this->txtcouleur->TabIndex = 34;
-
 			// 
 			// FicheArticle
 			// 
@@ -372,5 +373,12 @@ namespace Gestionpoo {
 		public:
 			void set_article(Composant::Article^);
 			Composant::Article^ get_article(void);
+		private: void num_box(System::Windows::Forms::KeyPressEventArgs^ e);
+		private: System::Void ht_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+			num_box(e);
+		}
+		private: System::Void tva_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+			num_box(e);
+		}
 };
 }

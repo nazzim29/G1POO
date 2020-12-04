@@ -96,3 +96,10 @@ System::Void Gestionpoo::FicheClient::button3_Click(System::Object^ sender, Syst
     del_add->Add(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[0]->Value));
     dataGridView1->Rows->Remove(dataGridView1->SelectedRows[0]);
 }
+
+void Gestionpoo::FicheClient::alpha_only(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (System::Char::IsDigit(e->KeyChar)|| System::Char::IsSymbol(e->KeyChar)) {
+        e->Handled;
+    }
+}

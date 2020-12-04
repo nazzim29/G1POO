@@ -41,3 +41,13 @@ Composant::Article^ Gestionpoo::FicheArticle::get_article(void)
 {
     return this->article;
 }
+
+void Gestionpoo::FicheArticle::num_box(System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == ',' || e->KeyChar == '.') {
+        e->KeyChar = '.';
+    }
+    else if (!System::Char::IsDigit(e->KeyChar)) {
+        e->Handled = true;
+    }
+}
