@@ -55,7 +55,7 @@ namespace Composant {
         return "UPDATE Client " +
             "SET Nom_C = '" + this->get_nom() + "', Prenom_C = '" + this->get_prenom() + "', Date_de_naissance = convert(datetime,'" + date_to_string(this->GetDate_naiss()) + "',103), Date_du_premier_achat = convert(datetime,'" + date_to_string(this->GetDate_pr_achat()) + "',103) " +
             "WHERE(ID_Client = " + this->get_id() + ");";
-    }
+    }   
 
     String^ Composant::Client::DELETE(void)
     {

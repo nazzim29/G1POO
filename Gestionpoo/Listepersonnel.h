@@ -98,6 +98,7 @@ namespace Gestionpoo {
 	System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) override;
 	System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) override;
 	System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) override;
+	private: void afficher();
 
 };
 }
