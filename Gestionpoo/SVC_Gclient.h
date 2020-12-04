@@ -30,7 +30,7 @@ namespace Service {
 		DataTable^ adressesClient(int);
 		void afficher(int);
 		void ajouter(String^, String^, DateTime^, DateTime^,DataTable^);
-		void modifier(int, String^, String^, DateTime^, DateTime^,DataTable^);
+		void modifier(int, String^, String^, DateTime^, DateTime^,DataTable^,List<int>^);
 		void supprimer(int);
 	};
 }

@@ -42,7 +42,7 @@ System::Void Gestionpoo::Listeclient::button4_Click(System::Object^ sender, Syst
 	fc->set_adresses(this->gestionclient->get_adrclient(), this->gestionclient->get_ville());
 	fc->ShowDialog();
 	if (fc->valider) {
-		this->gestionclient->modifier(fc->get_id(), fc->get_nom(), fc->get_prenom(), fc->get_date_naissance(), fc->get_pr_achat(), fc->get_adresses());
+		this->gestionclient->modifier(fc->get_id(), fc->get_nom(), fc->get_prenom(), fc->get_date_naissance(), fc->get_pr_achat(), fc->get_adresses(),fc->del_add);
 	}
 	Liste_Load(sender, e);
 }

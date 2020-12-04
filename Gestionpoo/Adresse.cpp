@@ -33,13 +33,7 @@ namespace Composant
 	}
 	String^ Adresse::UPDATEclient(void)
 	{
-		if (ID_Adresse == 0) {
-			return this->INSERTclient();
-		}
-		else
-		{
 			return "UPDATE Adresse SET id_ville =" + this->Id_Ville + ",adresse = '" + this->adresse + "',id_client = " + this->Id_Client + " WHERE ID_Adresse = " + this->ID_Adresse;
-		}
 	}
 	String^ Adresse::DELETE(void)
 	{

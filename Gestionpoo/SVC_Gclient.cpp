@@ -88,7 +88,7 @@ namespace Service {
 		}
 
 	}
-	void SVC_Gclient::modifier(int id_client, String^ nom, String^ prenom, System::DateTime^ date_naiss, System::DateTime^ date_pr_achat,DataTable^ d)
+	void SVC_Gclient::modifier(int id_client, String^ nom, String^ prenom, System::DateTime^ date_naiss, System::DateTime^ date_pr_achat,DataTable^ d,List<int>^ deladr)
 	{
 		this->client->set_id(id_client);
 		this->client->set_nom(nom);
@@ -114,6 +114,11 @@ namespace Service {
 				this->cad->actionRows(addr->UPDATEclient());
 			}
 			this->adrclient->Add(addr);
+		}
+		for (int i = 0; i < deladr->Count; i++) {
+
+			addr->setIdAdresse(deladr[i]);
+			this->cad->actionRows(addr->DELETE());
 		}
 	}
 	void SVC_Gclient::supprimer(int id_client)
