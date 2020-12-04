@@ -61,6 +61,7 @@ System::Void Gestionpoo::Listepersonnel::button4_Click(System::Object^ sender, S
 {
 	//modifier un employe 
 	afficher();
+	fe->ShowDialog();
 	if (fe->validate) {
 		if (fe->havesup()) {
 			gestionemploye->modifier(fe->get_id(),fe->get_nom(), fe->get_prenom(), fe->get_embauche(), fe->get_adresse(), fe->get_ville(), fe->get_sup());
