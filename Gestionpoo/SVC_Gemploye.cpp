@@ -112,4 +112,12 @@ namespace Service
 		this->cad->actionRows(this->personnel->DELETE());
 		this->cad->actionRows(this->adresse->DELETE());
 	}
+	DataTable^ SVC_Gemploye::cmb_sup()
+	{
+		return cad->getRows("select id_Personnel, concat(nom_P,' ',prenom_P) as employe from personnel");
+	}
+	DataTable^ SVC_Gemploye::cmb_ville()
+	{
+		return cad->getRows("select id_ville,nom_ville from ville");
+	}
 }

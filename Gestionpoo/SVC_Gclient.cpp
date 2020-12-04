@@ -105,8 +105,14 @@ namespace Service {
 			addr->setAdresse(Convert::ToString(d->Rows[i]->ItemArray[1]));
 			addr->setIdVille(v->getIdVille());
 			addr->setIdClient(this->client->get_id());
-			addr->setIdAdresse(Convert::ToInt32(d->Rows[i]->ItemArray[0]));
-			this->cad->actionRows(addr->UPDATEclient());
+			int h = Convert::ToInt32(d->Rows[i]->ItemArray[0]);
+			if (h == 0) {
+				addr->setIdAdresse(this->cad->actionRowsID(addr->INSERTclient()));
+			}
+			else {
+				addr->setIdAdresse(Convert::ToInt32(d->Rows[i]->ItemArray[0]));
+				this->cad->actionRows(addr->UPDATEclient());
+			}
 			this->adrclient->Add(addr);
 		}
 	}
