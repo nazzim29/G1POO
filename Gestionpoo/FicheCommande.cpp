@@ -1,5 +1,7 @@
 #include "FicheCommande.h"
 
+
+
 void Gestionpoo::FicheCommande::set_client(String^ cl)
 {
     lblclient->Text = "Client : " + cl;

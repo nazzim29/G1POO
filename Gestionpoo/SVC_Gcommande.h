@@ -18,17 +18,20 @@ namespace Service {
 	private:
 		
 		DataTable^ ds;
-
-	public:
 		Composant::CAD^ cad;
 		Composant::Client^ client;
 		Composant::Commande^ commande;
 		Composant::Article^ article;
 		List<Composant::Adresse^>^ adresse;
 		List<Composant::Ville^>^ ville;
+
+	public:
+		DataTable^ get_listearticle();
+		void set_idclient(int id);
+		DataTable^ get_adressesclient();
+		DataTable^ listeclient();
 		SVC_Gcommande();
 		DataTable^ listecommande();
-		void get_addr();
 		void set_addr(DataTable^);
 		void afficher(int);
 		void ajouter(DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);

@@ -59,11 +59,10 @@ namespace Composant {
 		return ref;
 	}
 	System::String^ Commande::SELECT() {
-		return "select id_commande,date_emission,reference,date_livraison,date_reglementsolde,id_client,id_adresse,id_adresse_facturation"+
-			"from commande";
+		return "select id_commande,  reference, date_emission,(select concat(nom_c,' ',prenom_c) from client where commande.id_client = client.id_client)as client,(select sum (prix_ht + (tva*prix_ht/100)) from contient where contient.id_commande = commande.id_commande) as prix_ttc from commande";
 	}
 	System::String^ Commande::SELECTbyid() {
-		return Commande::SELECT() + "where id_commande = " + this->id_commande;
+		return Commande::SELECT() + " where id_commande = " + this->id_commande;
 	}
 	System::String^ Commande::UPDATE() {
 		return "UPDATE commande " + "SET id_commande= '" + this->get_id_commande() + "', date_emission = '" + date_to_string(this->get_date_emission())

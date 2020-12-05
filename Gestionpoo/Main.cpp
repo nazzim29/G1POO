@@ -86,10 +86,13 @@ System::Void Gestionpoo::Main::button9_Click(System::Object^ sender, System::Eve
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button9->Top;
+	if (panel3->Controls->Contains(lstcommande)) {
+		lstcommande->BringToFront();
+	}
+	else {
+		this->panel3->Controls->Add(lstcommande);
+		lstcommande->Dock = DockStyle::Fill;
+		lstcommande->BringToFront();
+	}
 }
 
-System::Void Gestionpoo::Main::button8_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	this->panel2->Visible = true;
-	this->panel2->Top = button8->Top;
-}

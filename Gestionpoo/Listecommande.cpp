@@ -10,12 +10,14 @@ System::Void Gestionpoo::Listecommande::button1_Click(System::Object^ sender, Sy
 {
     FicheCommande^ fc = gcnew FicheCommande();
     MyForm1^ lstcl = gcnew MyForm1();
-    lstcl->set_cl_lst(this->gestioncommande->cad->getRows(this->gestioncommande->client->SELECT()));
+    lstcl->set_cl_lst(this->gestioncommande->listeclient());
     lstcl->ShowDialog();
     if (lstcl->selected) {
-        this->gestioncommande->client->set_id(lstcl->get_cl_sl());
-        fc->set_adresse_list(this->gestioncommande->cad->getRows("SELECT id_adresse, concat(adresse,' ,',(SELECT ville from ville where ville.id_ville = adresse.id_ville)) as adresse from adresse where id_client = " + this->gestioncommande->client->get_id()));
-
+        this->gestioncommande->set_idclient(lstcl->get_cl_sl());
+        fc->set_adresse_list(this->gestioncommande->get_adressesclient());
+        fc->set_client(lstcl->get_client());
+        fc->listearticle = this->gestioncommande->get_listearticle();
+        fc->ShowDialog();
     }
     
 }

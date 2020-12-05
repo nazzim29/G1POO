@@ -2,6 +2,7 @@
 #include "Listepersonnel.h"
 #include "ListeStock.h"
 #include "Listeclient.h"
+#include "Listecommande.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -39,6 +40,7 @@ namespace Gestionpoo {
 	private: Listepersonnel^ lstpersonnel = gcnew Listepersonnel();
 	private: Listeclient^ lstclient = gcnew Listeclient();
 	private: ListeStock^ lstarticle = gcnew ListeStock();
+	private: Listecommande^ lstcommande = gcnew Listecommande();
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: System::Windows::Forms::Button^ button4;
@@ -53,7 +55,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Button^ button9;
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Button^ button8;
+
 
 	private:
 		/// <summary>
@@ -73,7 +75,6 @@ namespace Gestionpoo {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -91,7 +92,6 @@ namespace Gestionpoo {
 			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->button9);
 			this->panel1->Controls->Add(this->panel2);
-			this->panel1->Controls->Add(this->button8);
 			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button2);
@@ -138,20 +138,6 @@ namespace Gestionpoo {
 			this->panel2->Size = System::Drawing::Size(24, 57);
 			this->panel2->TabIndex = 4;
 			this->panel2->Visible = false;
-			// 
-			// button8
-			// 
-			this->button8->FlatAppearance->BorderSize = 0;
-			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
-			this->button8->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button8->Location = System::Drawing::Point(3, 423);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(270, 54);
-			this->button8->TabIndex = 7;
-			this->button8->Text = L"payement";
-			this->button8->UseVisualStyleBackColor = true;
-			this->button8->Click += gcnew System::EventHandler(this, &Main::button8_Click);
 			// 
 			// button7
 			// 
@@ -281,6 +267,5 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

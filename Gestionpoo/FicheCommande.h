@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Listearticle.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -15,6 +15,7 @@ namespace Gestionpoo {
 	public ref class FicheCommande : public System::Windows::Forms::Form
 	{
 	public:
+		DataTable^ listearticle;
 		FicheCommande(void)
 		{
 			InitializeComponent();
@@ -67,6 +68,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ lblclient;
+
 
 	protected:
 
@@ -151,10 +153,11 @@ namespace Gestionpoo {
 			// datenais
 			// 
 			this->datenais->Location = System::Drawing::Point(154, 131);
+			this->datenais->MinDate = System::DateTime(2020, 12, 5, 13, 40, 51, 502);
 			this->datenais->Name = L"datenais";
 			this->datenais->Size = System::Drawing::Size(223, 27);
 			this->datenais->TabIndex = 13;
-			this->datenais->Value = System::DateTime(2020, 11, 30, 12, 48, 12, 0);
+			this->datenais->Value = System::DateTime(2020, 12, 5, 13, 40, 51, 502);
 			// 
 			// dataGridView1
 			// 
@@ -301,17 +304,18 @@ namespace Gestionpoo {
 			this->button2->Size = System::Drawing::Size(30, 30);
 			this->button2->TabIndex = 40;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FicheCommande::button2_Click);
 			// 
 			// lblclient
 			// 
 			this->lblclient->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblclient->Location = System::Drawing::Point(29, 87);
+			this->lblclient->Location = System::Drawing::Point(325, 76);
 			this->lblclient->Name = L"lblclient";
 			this->lblclient->Size = System::Drawing::Size(245, 19);
 			this->lblclient->TabIndex = 41;
 			this->lblclient->Text = L"Client";
-			this->lblclient->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->lblclient->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// FicheCommande
 			// 
@@ -358,5 +362,9 @@ namespace Gestionpoo {
 			void set_adresse_facturation(int);
 			void set_adresse_list(DataTable^);
 			void set_article_list(DataTable^);
+		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+			Listearticle^ la = gcnew Listearticle();
+			la->ShowDialog();
+		}
 };
 }
