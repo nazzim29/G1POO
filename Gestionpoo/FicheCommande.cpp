@@ -4,7 +4,7 @@
 
 void Gestionpoo::FicheCommande::set_client(String^ cl)
 {
-    lblclient->Text = + cl;
+    lblclient->Text = cl;
 }
 
 void Gestionpoo::FicheCommande::set_date_livraison(DateTime^ date)
@@ -44,8 +44,17 @@ void Gestionpoo::FicheCommande::set_article_list(DataTable^ ds)
 
 System::Collections::Generic::List<Composant::Choisir^>^ Gestionpoo::FicheCommande::get_choix()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: insérer une instruction return ici
+    System::Collections::Generic::List<Composant::Choisir^>^ c = gcnew System::Collections::Generic::List<Composant::Choisir^>();
+    Composant::Choisir^ a = gcnew Composant::Choisir();
+    for (int i = 0; i < dataGridView1->Rows->Count; i++)
+    {
+        int f = getartindex(dataGridView1->Rows[i]->Cells[0]->Value->ToString());
+        a->setIdArticle(Convert::ToInt32(listearticle->Rows[f]->ItemArray[0]));
+        a->setQuantiteAricle(Convert::ToInt32(dataGridView1->Rows[i]->Cells[5]->Value));
+        a->setRemise(float::Parse(dataGridView1->Rows[i]->Cells[7]->Value->ToString()));
+        a->setprixht(float::)
+    }
+    return c;
 }
 
 void Gestionpoo::FicheCommande::set_choix(System::Collections::Generic::List<Composant::Choisir^>^ l)

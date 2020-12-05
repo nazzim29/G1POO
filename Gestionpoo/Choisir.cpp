@@ -9,18 +9,18 @@ namespace Composant
 	}
 	String^ Choisir::SELECT(void)
 	{
-		return "SELECT ID_Article, ID_Commande,Quantite_Article,Remise " +
-			"FROM Choisir " + ");";
+		return "SELECT ID_Article, ID_Commande,Quantite_Article,Remise,prix_ht,tva " +
+			"FROM Choisir ";
 	}
 	String^ Choisir::INSERT(void)
 	{
-		return "INSERT INTO Choisir (ID_Article,ID_Commande,Quantite_Article,Remise) " +
-			"VALUES('" + this->Id_Article + "','" + this->Id_Commande + "','" + this->Quantité_Article + "','" + this->Remise + "',);SELECT @@IDENTITY;";
+		return "INSERT INTO Choisir (ID_Article,ID_Commande,Quantite_Article,Remise,prix_ht,tva) " +
+			"VALUES(" + this->Id_Article + "," + this->Id_Commande + "," + this->Quantité_Article + "," + this->Remise + ","+this->prix_ht+","+this->tva+")";
 	}
 	String^ Choisir::UPDATE(void)
 	{
 		return "UPDATE Choisir " +
-			"SET ID_Article ='" + this->Id_Article + "',  ='" + this->Id_Commande + "',  ='" + this->Quantité_Article + "',  ='" + this->Remise + "'";
+			"SET ID_Article =" + this->Id_Article + ", id_commande =" + this->Id_Commande + ", quantite_article =" + this->Quantité_Article + ", remise =" + this->Remise + ",prix_ht = "+this->prix_ht+", tva = "+this->tva;
 	}
 	String^ Choisir::DELETE(void)
 	{
@@ -55,8 +55,24 @@ namespace Composant
 	{
 		return this->Quantité_Article;
 	}
-	int Choisir::getRemise(void)
+	float Choisir::getRemise(void)
 	{
 		return this->Remise;
+	}
+	float Choisir::getprixht(void)
+	{
+		return this->prix_ht;
+	}
+	float Choisir::gettva(void)
+	{
+		return this->tva;
+	}
+	void Choisir::settva(float t)
+	{
+		this->tva = t;
+	}
+	void Choisir::setprixht(float t)
+	{
+		this->prix_ht = t;
 	}
 }

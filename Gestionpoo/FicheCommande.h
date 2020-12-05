@@ -10,6 +10,7 @@ namespace Gestionpoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Description résumée de FicheCommande
@@ -98,6 +99,16 @@ namespace Gestionpoo {
 
 
 
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -113,7 +124,7 @@ namespace Gestionpoo {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FicheCommande::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -165,7 +176,7 @@ namespace Gestionpoo {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(394, 137);
+			this->label7->Location = System::Drawing::Point(488, 137);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(114, 19);
 			this->label7->TabIndex = 16;
@@ -173,7 +184,7 @@ namespace Gestionpoo {
 			// 
 			// dateachat
 			// 
-			this->dateachat->Location = System::Drawing::Point(514, 131);
+			this->dateachat->Location = System::Drawing::Point(608, 131);
 			this->dateachat->Name = L"dateachat";
 			this->dateachat->Size = System::Drawing::Size(217, 27);
 			this->dateachat->TabIndex = 15;
@@ -184,7 +195,7 @@ namespace Gestionpoo {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(29, 137);
+			this->label5->Location = System::Drawing::Point(42, 137);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(119, 19);
 			this->label5->TabIndex = 14;
@@ -192,7 +203,7 @@ namespace Gestionpoo {
 			// 
 			// datenais
 			// 
-			this->datenais->Location = System::Drawing::Point(154, 131);
+			this->datenais->Location = System::Drawing::Point(167, 131);
 			this->datenais->MinDate = System::DateTime(2020, 12, 5, 13, 40, 51, 502);
 			this->datenais->Name = L"datenais";
 			this->datenais->Size = System::Drawing::Size(223, 27);
@@ -203,16 +214,17 @@ namespace Gestionpoo {
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Reference,
@@ -411,42 +423,36 @@ namespace Gestionpoo {
 			this->Reference->HeaderText = L"Reference";
 			this->Reference->Name = L"Reference";
 			this->Reference->ReadOnly = true;
-			this->Reference->Width = 140;
 			// 
 			// Designation
 			// 
 			this->Designation->HeaderText = L"Designation";
 			this->Designation->Name = L"Designation";
 			this->Designation->ReadOnly = true;
-			this->Designation->Width = 141;
 			// 
 			// Couleur
 			// 
 			this->Couleur->HeaderText = L"Couleur";
 			this->Couleur->Name = L"Couleur";
 			this->Couleur->ReadOnly = true;
-			this->Couleur->Width = 140;
 			// 
 			// Prix_HT
 			// 
 			this->Prix_HT->HeaderText = L"Prix HT";
 			this->Prix_HT->Name = L"Prix_HT";
 			this->Prix_HT->ReadOnly = true;
-			this->Prix_HT->Width = 141;
 			// 
 			// TVA
 			// 
 			this->TVA->HeaderText = L"TVA";
 			this->TVA->Name = L"TVA";
 			this->TVA->ReadOnly = true;
-			this->TVA->Width = 140;
 			// 
 			// Quantite
 			// 
 			this->Quantite->HeaderText = L"Quantité Commandée";
 			this->Quantite->Name = L"Quantite";
 			this->Quantite->ReadOnly = true;
-			this->Quantite->Width = 141;
 			// 
 			// Prix_ttc
 			// 
@@ -455,7 +461,6 @@ namespace Gestionpoo {
 			this->Prix_ttc->ReadOnly = true;
 			this->Prix_ttc->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->Prix_ttc->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			this->Prix_ttc->Width = 140;
 			// 
 			// remise
 			// 
@@ -468,7 +473,7 @@ namespace Gestionpoo {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
-			this->ClientSize = System::Drawing::Size(1008, 625);
+			this->ClientSize = System::Drawing::Size(1003, 625);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->numericUpDown1);

@@ -9,7 +9,7 @@ namespace Composant
 		int Id_Article;
 		int Id_Commande;
 		int Quantité_Article;
-		float Remise;
+		float Remise,prix_ht,tva;
 
 	public:
 		Choisir(void);
@@ -24,7 +24,11 @@ namespace Composant
 		int getIdArticle(void);
 		int getIdCommande(void);
 		int getQuantiteArticle(void);
-		int getRemise(void);
+		float getRemise(void);
+		float getprixht(void);
+		float gettva(void);
+		void settva(float);
+		void setprixht(float);
 	protected:
 		~Choisir() {
 			delete this;
