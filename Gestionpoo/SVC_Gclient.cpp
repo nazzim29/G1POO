@@ -59,6 +59,8 @@ namespace Service {
 			v->setIdVille(a->getIdVille());
 			v->setNomVille(Convert::ToString(this->cad->getRows(v->SELECTbyid())->Rows[0]->ItemArray[1]));
 			ville->Add(v);
+			v = gcnew Composant::Ville();
+			a = gcnew Composant::Adresse();
 		}
 	}
 	void SVC_Gclient::ajouter(String^ nom, String^ prenom, DateTime^ date_naiss, DateTime^ date_pr_achat,DataTable^ d)
@@ -79,6 +81,8 @@ namespace Service {
 			addr->setIdClient(this->client->get_id());
 			addr->setIdAdresse(this->cad->actionRowsID(addr->INSERTclient()));
 			this->adrclient->Add(addr);
+			v = gcnew Composant::Ville();
+			addr = gcnew Composant::Adresse();
 		}
 
 	}
@@ -108,6 +112,8 @@ namespace Service {
 				this->cad->actionRows(addr->UPDATEclient());
 			}
 			this->adrclient->Add(addr);
+			v = gcnew Composant::Ville();
+			addr = gcnew Composant::Adresse();
 		}
 		for (int i = 0; i < deladr->Count; i++) {
 
