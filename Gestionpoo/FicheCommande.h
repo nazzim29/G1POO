@@ -18,6 +18,7 @@ namespace Gestionpoo {
 	public ref class FicheCommande : public System::Windows::Forms::Form
 	{
 	public:
+		bool valider = false;
 		DataTable^ listearticle;
 		FicheCommande(void)
 		{
@@ -132,6 +133,14 @@ namespace Gestionpoo {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->datenais = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Reference = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Designation = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Couleur = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Prix_HT = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->TVA = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Quantite = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Prix_ttc = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->remise = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
@@ -148,14 +157,6 @@ namespace Gestionpoo {
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->Reference = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Designation = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Couleur = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Prix_HT = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->TVA = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Quantite = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Prix_ttc = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->remise = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->SuspendLayout();
@@ -204,7 +205,6 @@ namespace Gestionpoo {
 			// datenais
 			// 
 			this->datenais->Location = System::Drawing::Point(167, 131);
-			this->datenais->MinDate = System::DateTime(2020, 12, 5, 13, 40, 51, 502);
 			this->datenais->Name = L"datenais";
 			this->datenais->Size = System::Drawing::Size(223, 27);
 			this->datenais->TabIndex = 13;
@@ -237,6 +237,56 @@ namespace Gestionpoo {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(984, 271);
 			this->dataGridView1->TabIndex = 25;
+			// 
+			// Reference
+			// 
+			this->Reference->HeaderText = L"Reference";
+			this->Reference->Name = L"Reference";
+			this->Reference->ReadOnly = true;
+			// 
+			// Designation
+			// 
+			this->Designation->HeaderText = L"Designation";
+			this->Designation->Name = L"Designation";
+			this->Designation->ReadOnly = true;
+			// 
+			// Couleur
+			// 
+			this->Couleur->HeaderText = L"Couleur";
+			this->Couleur->Name = L"Couleur";
+			this->Couleur->ReadOnly = true;
+			// 
+			// Prix_HT
+			// 
+			this->Prix_HT->HeaderText = L"Prix HT";
+			this->Prix_HT->Name = L"Prix_HT";
+			this->Prix_HT->ReadOnly = true;
+			// 
+			// TVA
+			// 
+			this->TVA->HeaderText = L"TVA";
+			this->TVA->Name = L"TVA";
+			this->TVA->ReadOnly = true;
+			// 
+			// Quantite
+			// 
+			this->Quantite->HeaderText = L"Quantité Commandée";
+			this->Quantite->Name = L"Quantite";
+			this->Quantite->ReadOnly = true;
+			// 
+			// Prix_ttc
+			// 
+			this->Prix_ttc->HeaderText = L"Prix TTC";
+			this->Prix_ttc->Name = L"Prix_ttc";
+			this->Prix_ttc->ReadOnly = true;
+			this->Prix_ttc->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			this->Prix_ttc->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			// 
+			// remise
+			// 
+			this->remise->HeaderText = L"Remise";
+			this->remise->Name = L"remise";
+			this->remise->ReadOnly = true;
 			// 
 			// button9
 			// 
@@ -404,6 +454,7 @@ namespace Gestionpoo {
 			this->button3->Text = L"Valider";
 			this->button3->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &FicheCommande::button3_Click);
 			// 
 			// button4
 			// 
@@ -417,56 +468,6 @@ namespace Gestionpoo {
 			this->button4->TabIndex = 44;
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &FicheCommande::button4_Click);
-			// 
-			// Reference
-			// 
-			this->Reference->HeaderText = L"Reference";
-			this->Reference->Name = L"Reference";
-			this->Reference->ReadOnly = true;
-			// 
-			// Designation
-			// 
-			this->Designation->HeaderText = L"Designation";
-			this->Designation->Name = L"Designation";
-			this->Designation->ReadOnly = true;
-			// 
-			// Couleur
-			// 
-			this->Couleur->HeaderText = L"Couleur";
-			this->Couleur->Name = L"Couleur";
-			this->Couleur->ReadOnly = true;
-			// 
-			// Prix_HT
-			// 
-			this->Prix_HT->HeaderText = L"Prix HT";
-			this->Prix_HT->Name = L"Prix_HT";
-			this->Prix_HT->ReadOnly = true;
-			// 
-			// TVA
-			// 
-			this->TVA->HeaderText = L"TVA";
-			this->TVA->Name = L"TVA";
-			this->TVA->ReadOnly = true;
-			// 
-			// Quantite
-			// 
-			this->Quantite->HeaderText = L"Quantité Commandée";
-			this->Quantite->Name = L"Quantite";
-			this->Quantite->ReadOnly = true;
-			// 
-			// Prix_ttc
-			// 
-			this->Prix_ttc->HeaderText = L"Prix TTC";
-			this->Prix_ttc->Name = L"Prix_ttc";
-			this->Prix_ttc->ReadOnly = true;
-			this->Prix_ttc->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->Prix_ttc->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			// 
-			// remise
-			// 
-			this->remise->HeaderText = L"Remise";
-			this->remise->Name = L"remise";
-			this->remise->ReadOnly = true;
 			// 
 			// FicheCommande
 			// 
@@ -511,22 +512,26 @@ namespace Gestionpoo {
 		}
 #pragma endregion
 		public:
-			void set_client(String^);
 			Composant::Commande^ get_commande();
-			void set_date_livraison(DateTime^);
-			void set_date_emission(DateTime^);
-			void set_adresse_livraison(int);
-			void set_adresse_facturation(int);
 			void set_adresse_list(DataTable^);
 			void set_article_list(DataTable^);
 			System::Collections::Generic::List<Composant::Choisir^>^ get_choix();
+			void set_commande(Composant::Commande^ d);
+			void set_client(String^ d);
+
+
 			void set_choix(System::Collections::Generic::List<Composant::Choisir^>^ l);
 		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void FicheCommande_Load(System::Object^ sender, System::EventArgs^ e);
 		private: bool existinarticle(String^ f);
 		private: int getartindex(String^ s);
+		private: int getartindex(int i);	
 		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void textBox4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	valider = true;
+	this->Close();
+}
 };
 }

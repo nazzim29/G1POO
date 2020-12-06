@@ -96,7 +96,7 @@ namespace Gestionpoo {
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
 			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
@@ -168,6 +168,7 @@ namespace Gestionpoo {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyForm1";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"MyForm1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);

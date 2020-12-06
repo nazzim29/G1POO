@@ -18,18 +18,31 @@ System::Void Gestionpoo::Listecommande::button1_Click(System::Object^ sender, Sy
         fc->set_client(lstcl->get_client());
         fc->listearticle = this->gestioncommande->get_listearticle();
         fc->ShowDialog();
+        if (fc->valider) {
+            this->gestioncommande->set_commande(fc->get_commande());
+            this->gestioncommande->set_choix(fc->get_choix());
+            this->gestioncommande->ajouter();
+        }
     }
     
 }
 
 System::Void Gestionpoo::Listecommande::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    return System::Void();
+    FicheCommande^ fc = gcnew FicheCommande();
+    fc->listearticle = this->gestioncommande->get_listearticle();
+    this->gestioncommande->afficher(Convert::ToInt32(this->dataGridView1->SelectedRows[0]->Cells[0]->Value));
+    fc->set_adresse_list(this->gestioncommande->get_adressesclient());
+    fc->set_client(this->gestioncommande->get_nomprenom());
+    fc->set_commande(this->gestioncommande->get_commande());
+    fc->set_choix(this->gestioncommande->get_choix());
+    fc->ShowDialog();
 }
 
 System::Void Gestionpoo::Listecommande::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    return System::Void();
+    this->gestioncommande->supprimer(int::Parse(this->dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString()));
+    Liste_Load(sender, e);
 }
 
 System::Void Gestionpoo::Listecommande::button4_Click(System::Object^ sender, System::EventArgs^ e)

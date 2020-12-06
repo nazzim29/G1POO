@@ -2,30 +2,7 @@
 
 
 
-void Gestionpoo::FicheCommande::set_client(String^ cl)
-{
-    lblclient->Text = cl;
-}
 
-void Gestionpoo::FicheCommande::set_date_livraison(DateTime^ date)
-{
-    this->datenais->Value = DateTime(date->Year, date->Month, date->Day);
-}
-
-void Gestionpoo::FicheCommande::set_date_emission(DateTime^ date)
-{
-    this->dateachat->Value = DateTime(date->Year, date->Month, date->Day);
-}
-
-void Gestionpoo::FicheCommande::set_adresse_livraison(int i)
-{
-    comboBox1->SelectedValue = i;
-}
-
-void Gestionpoo::FicheCommande::set_adresse_facturation(int i)
-{
-    comboBox2->SelectedValue = i;
-}
 
 void Gestionpoo::FicheCommande::set_adresse_list(DataTable^ ds)
 {
@@ -52,14 +29,41 @@ System::Collections::Generic::List<Composant::Choisir^>^ Gestionpoo::FicheComman
         a->setIdArticle(Convert::ToInt32(listearticle->Rows[f]->ItemArray[0]));
         a->setQuantiteAricle(Convert::ToInt32(dataGridView1->Rows[i]->Cells[5]->Value));
         a->setRemise(float::Parse(dataGridView1->Rows[i]->Cells[7]->Value->ToString()));
-        a->setprixht(float::)
+        a->setprixht(float::Parse(dataGridView1->Rows[i]->Cells[3]->Value->ToString()));
+        a->settva(float::Parse(dataGridView1->Rows[i]->Cells[4]->Value->ToString()));
+        c->Add(a);
+        a = gcnew Composant::Choisir();
     }
     return c;
 }
 
+void Gestionpoo::FicheCommande::set_commande(Composant::Commande^ d)
+{
+    comboBox1->SelectedValue = d->get_id_adresse_livraison();
+    comboBox2->SelectedValue = d->get_adresse_facturation();
+    datenais->Value = DateTime(d->get_date_livraison()->Year, d->get_date_livraison()->Month, d->get_date_livraison()->Day);
+    dateachat->Value = DateTime(d->get_date_emission()->Year, d->get_date_emission()->Month, d->get_date_emission()->Day);
+}
+
+void Gestionpoo::FicheCommande::set_client(String^ d)
+{
+    this->lblclient->Text = d;
+}
+
 void Gestionpoo::FicheCommande::set_choix(System::Collections::Generic::List<Composant::Choisir^>^ l)
 {
-    throw gcnew System::NotImplementedException();
+    for (int i = 0; i < l->Count; i++) {
+        int f = getartindex(l[i]->getIdArticle());
+        this->dataGridView1->Rows->Add(listearticle->Rows[f]->ItemArray[1]->ToString(),
+            listearticle->Rows[f]->ItemArray[2]->ToString(),
+            listearticle->Rows[f]->ItemArray[7]->ToString(),
+            l[i]->getprixht(),
+            l[i]->gettva(),
+            l[i]->getQuantiteArticle(),
+            (l[i]->getprixht() + (l[i]->getprixht() * l[i]->gettva())) * l[i]->getQuantiteArticle(),
+            l[i]->getRemise());
+            //reference,designation,couleur,prixht,tva,quantité,prixttc,remise
+    }
 }
 
 
@@ -118,6 +122,16 @@ int Gestionpoo::FicheCommande::getartindex(String^ s)
     }
 }
 
+int Gestionpoo::FicheCommande::getartindex(int s)
+{
+    for (size_t i = 0; i < listearticle->Rows->Count; i++)
+    {
+        if (listearticle->Rows[i]->ItemArray[0]->ToString()->Equals(s.ToString())) {
+            return i;
+        }
+    }
+}
+
 System::Void Gestionpoo::FicheCommande::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (existinarticle(textBox2->Text)) {
@@ -129,9 +143,14 @@ System::Void Gestionpoo::FicheCommande::button1_Click(System::Object^ sender, Sy
                 numericUpDown1->Value = Convert::ToDecimal(Convert::ToInt32(listearticle->Rows[getartindex(textBox2->Text)]->ItemArray[5]));
             }
             else {
-
+                float remise;
                 float prix_ht_unit = float::Parse(listearticle->Rows[indexart]->ItemArray[3]->ToString());
-                float remise = float::Parse(textBox4->Text) / 100;
+                if (textBox4->Text != "") {
+                    remise = float::Parse(textBox4->Text) / 100;
+                }
+                else {
+                    remise = 0.00;
+                }
                 float tva = float::Parse(listearticle->Rows[indexart]->ItemArray[4]->ToString()) / 100;
                 float prix_ttc = prix_ht_unit + (prix_ht_unit * (tva - remise));
                 dataGridView1->Rows->Add(listearticle->Rows[indexart]->ItemArray[1]->ToString(),
@@ -140,7 +159,8 @@ System::Void Gestionpoo::FicheCommande::button1_Click(System::Object^ sender, Sy
                     listearticle->Rows[indexart]->ItemArray[3]->ToString(),
                     listearticle->Rows[indexart]->ItemArray[4]->ToString(),
                     numericUpDown1->Value.ToString(),
-                    prix_ttc * Convert::ToInt32(numericUpDown1->Value));
+                    prix_ttc * Convert::ToInt32(numericUpDown1->Value),
+                    remise*100);
             }
         }
         else {

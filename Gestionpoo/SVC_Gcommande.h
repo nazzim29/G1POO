@@ -5,7 +5,7 @@
 #include"Article.h"
 #include "Commande.h"
 #include "Ville.h"
-
+#include "Choisir.h"
 
 
 namespace Service {
@@ -22,19 +22,26 @@ namespace Service {
 		Composant::Client^ client;
 		Composant::Commande^ commande;
 		Composant::Article^ article;
+		List<Composant::Article^>^ lstarticle;
 		List<Composant::Adresse^>^ adresse;
 		List<Composant::Ville^>^ ville;
+		List<Composant::Choisir^>^ choisir;
 
 	public:
-		DataTable^ get_listearticle();
-		void set_idclient(int id);
-		DataTable^ get_adressesclient();
-		DataTable^ listeclient();
 		SVC_Gcommande();
 		DataTable^ listecommande();
+		String^ get_nomprenom();
+		DataTable^ get_adressesclient();
+		DataTable^ listeclient();
+		DataTable^ get_listearticle();
+		Composant::Commande^ get_commande();
+		List<Composant::Choisir^>^ get_choix();
 		void set_addr(DataTable^);
+		void set_commande(Composant::Commande^ c);
+		void set_idclient(int id);
+		void set_choix(List<Composant::Choisir^>^ l);
 		void afficher(int);
-		void ajouter(DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);
+		void ajouter();
 		void modifier(int, DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);
 		void supprimer(int);
 	};

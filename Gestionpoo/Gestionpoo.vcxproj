@@ -140,10 +140,12 @@
     <ClCompile Include="Paiement.cpp" />
     <ClCompile Include="Personne.cpp" />
     <ClCompile Include="Personnel.cpp" />
+    <ClCompile Include="Stat.cpp" />
     <ClCompile Include="SVC_Gclient.cpp" />
     <ClCompile Include="SVC_Gcommande.cpp" />
     <ClCompile Include="SVC_Gemploye.cpp" />
     <ClCompile Include="SVC_Gpayement.cpp" />
+    <ClCompile Include="SVC_Gstat.cpp" />
     <ClCompile Include="SVC_Gstatistique.cpp" />
     <ClCompile Include="SVC_Gstock.cpp" />
     <ClCompile Include="Ville.cpp" />
@@ -201,10 +203,14 @@
     </ClInclude>
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
+    <ClInclude Include="Stat.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SVC_Gclient.h" />
     <ClInclude Include="SVC_Gcommande.h" />
     <ClInclude Include="SVC_Gemploye.h" />
     <ClInclude Include="SVC_Gpayement.h" />
+    <ClInclude Include="SVC_Gstat.h" />
     <ClInclude Include="SVC_Gstatistique.h" />
     <ClInclude Include="SVC_Gstock.h" />
     <ClInclude Include="Ville.h" />
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
       <DependentUpon>MyForm1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stat.resx">
+      <DependentUpon>Stat.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
