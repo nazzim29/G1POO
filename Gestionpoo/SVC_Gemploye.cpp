@@ -39,7 +39,7 @@ namespace Service
 	{
 		DataTable^ dd = gcnew DataTable();
 		this->adresse->setIdAdresse(this->personnel->get_id_adresse());
-		dd = this->cad->getRows(this->adresse->SELECT());
+		dd = this->cad->getRows(this->adresse->SELECTbyid());
 		this->adresse->setAdresse(Convert::ToString(dd->Rows[0]->ItemArray[1]));
 		this->adresse->setIdVille(Convert::ToInt32(dd->Rows[0]->ItemArray[2]));
 		this->ville->setIdVille(this->adresse->getIdVille());
