@@ -201,7 +201,7 @@ namespace Gestionpoo {
 			this->lstclient->Name = L"lstclient";
 			this->lstclient->Size = System::Drawing::Size(239, 27);
 			this->lstclient->TabIndex = 5;
-			this->lstclient->SelectedIndexChanged += gcnew System::EventHandler(this, &Stat::Stat_Load);
+			this->lstclient->DropDownClosed += gcnew System::EventHandler(this, &Stat::lstclient_DropDownClosed);
 			// 
 			// label2
 			// 
@@ -261,6 +261,7 @@ namespace Gestionpoo {
 			this->label5->TabIndex = 10;
 			this->label5->Text = L"Achat Client";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label5->Click += gcnew System::EventHandler(this, &Stat::label5_Click);
 			// 
 			// montantclient
 			// 
@@ -311,7 +312,7 @@ namespace Gestionpoo {
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(991, 12);
+			this->button1->Location = System::Drawing::Point(1012, 7);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(30, 30);
 			this->button1->TabIndex = 15;
@@ -353,5 +354,9 @@ namespace Gestionpoo {
 		}
 #pragma endregion
 	private: System::Void Stat_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void lstclient_DropDownClosed(System::Object^ sender, System::EventArgs^ e) {
+	montantclient->Text = this->stat->calcultotalachatclient(Convert::ToInt32(lstclient->SelectedValue)).ToString();
+}
 };
 }
