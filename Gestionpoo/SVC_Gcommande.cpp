@@ -62,9 +62,9 @@ namespace Service {
 		this->commande->set_date_emmision(DateTime(int::Parse(date->Substring(6, 4)), int::Parse(date->Substring(3, 2)), int::Parse(date->Substring(0, 2))));
 		date = t->Rows[0]->ItemArray[3]->ToString();
 		this->commande->set_date_livraison(DateTime(int::Parse(date->Substring(6, 4)), int::Parse(date->Substring(3, 2)), int::Parse(date->Substring(0, 2))));
-		this->client->set_id(int::Parse(t->Rows[0]->ItemArray[4]->ToString()));
 		this->commande->set_id_adresse_livraison(int::Parse(t->Rows[0]->ItemArray[4]->ToString()));
 		this->commande->set_id_adresse_facturation(int::Parse(t->Rows[0]->ItemArray[5]->ToString()));
+		this->client->set_id(int::Parse(t->Rows[0]->ItemArray[4]->ToString()));
 		t = this->cad->getRows(this->client->SELECTbyid());
 		this->client->set_nom(t->Rows[0]->ItemArray[1]->ToString());
 		this->client->set_prenom(t->Rows[0]->ItemArray[2]->ToString());
@@ -75,12 +75,12 @@ namespace Service {
 		//ID_Article, ID_Commande,Quantite_Article,Remise,prix_ht,tva
 		for (size_t i = 0; i < t->Rows->Count; i++)
 		{
-			f->setIdArticle(int::Parse(t->Rows[0]->ItemArray[0]->ToString()));
-			f->setIdCommande(int::Parse(t->Rows[0]->ItemArray[1]->ToString()));
-			f->setQuantiteAricle(int::Parse(t->Rows[0]->ItemArray[2]->ToString()));
-			f->setRemise(float::Parse(t->Rows[0]->ItemArray[3]->ToString()));
-			f->setprixht(float::Parse(t->Rows[0]->ItemArray[4]->ToString()));
-			f->settva(float::Parse(t->Rows[0]->ItemArray[5]->ToString()));
+			f->setIdArticle(int::Parse(t->Rows[i]->ItemArray[0]->ToString()));
+			f->setIdCommande(int::Parse(t->Rows[i]->ItemArray[1]->ToString()));
+			f->setQuantiteAricle(int::Parse(t->Rows[i]->ItemArray[2]->ToString()));
+			f->setRemise(float::Parse(t->Rows[i]->ItemArray[3]->ToString()));
+			f->setprixht(float::Parse(t->Rows[i]->ItemArray[4]->ToString()));
+			f->settva(float::Parse(t->Rows[i]->ItemArray[5]->ToString()));
 			choisir->Add(f);
 			f = gcnew Composant::Choisir();
 		}
@@ -109,9 +109,9 @@ namespace Service {
 			this->cad->actionRows(this->article->UPDATE());
 		}
 	}
-	void SVC_Gcommande::modifier(int, DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int)
+	void SVC_Gcommande::modifier(int a)
 	{
-		throw gcnew System::NotImplementedException();
+
 	}
 	void SVC_Gcommande::supprimer(int a)
 	{

@@ -47,7 +47,7 @@ System::Void Gestionpoo::Listecommande::button3_Click(System::Object^ sender, Sy
 
 System::Void Gestionpoo::Listecommande::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    return System::Void();
+    System::Windows::Forms::MessageBox::Show("Vous ne Voulez pas modifier les commande n'est ce pas?", "Vous vous etes trumper !", MessageBoxButtons::OK);
 }
 
 System::Void Gestionpoo::Listecommande::button5_Click(System::Object^ sender, System::EventArgs^ e)

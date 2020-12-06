@@ -42,7 +42,7 @@ namespace Service {
 		void set_choix(List<Composant::Choisir^>^ l);
 		void afficher(int);
 		void ajouter();
-		void modifier(int, DateTime^, int, String^, DateTime^, String^, DateTime^, DateTime^, int, int, int);
+		void modifier(int);
 		void supprimer(int);
 	};
 }

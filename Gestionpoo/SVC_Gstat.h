@@ -12,10 +12,11 @@ namespace Service {
 			float calculpaniermoyen();
 			float calculchiffreaffaire(DateTime^, DateTime^);
 			DataTable^ produitsousseuil();
-			float calcultotalachatclient();
+			float calcultotalachatclient(int id);
 			DataTable^ topvendu();
 			DataTable^ flopvendu();
 			float valeurcommercialstock();
 			float valeurachatstock();
+			DataTable^ clientliste();
 	};
 }

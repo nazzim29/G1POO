@@ -60,7 +60,7 @@ void Gestionpoo::FicheCommande::set_choix(System::Collections::Generic::List<Com
             l[i]->getprixht(),
             l[i]->gettva(),
             l[i]->getQuantiteArticle(),
-            (l[i]->getprixht() + (l[i]->getprixht() * l[i]->gettva())) * l[i]->getQuantiteArticle(),
+            (l[i]->getprixht() + (l[i]->getprixht() * (l[i]->gettva()-l[i]->getRemise())/100)) * l[i]->getQuantiteArticle(),
             l[i]->getRemise());
             //reference,designation,couleur,prixht,tva,quantité,prixttc,remise
     }

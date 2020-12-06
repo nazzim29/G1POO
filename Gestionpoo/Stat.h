@@ -1,5 +1,5 @@
 #pragma once
-
+#include "SVC_Gstat.h"
 namespace Gestionpoo {
 
 	using namespace System;
@@ -12,8 +12,9 @@ namespace Gestionpoo {
 	/// <summary>
 	/// Description résumée de Stat
 	/// </summary>
-	public ref class Stat : public System::Windows::Forms::Form
+	public ref class Stat : public System::Windows::Forms::UserControl
 	{
+	private: Service::SVC_Gstat^ stat = gcnew Service::SVC_Gstat();
 	public:
 		Stat(void)
 		{
@@ -50,6 +51,7 @@ namespace Gestionpoo {
 	private: System::Windows::Forms::Label^ chifreaffaire;
 	private: System::Windows::Forms::Label^ paniermoyen;
 	private: System::Windows::Forms::Label^ valeurstock;
+	private: System::Windows::Forms::Button^ button1;
 
 	private:
 		/// <summary>
@@ -67,6 +69,7 @@ namespace Gestionpoo {
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Stat::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
@@ -82,6 +85,7 @@ namespace Gestionpoo {
 			this->chifreaffaire = (gcnew System::Windows::Forms::Label());
 			this->paniermoyen = (gcnew System::Windows::Forms::Label());
 			this->valeurstock = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
@@ -108,6 +112,7 @@ namespace Gestionpoo {
 			this->dataGridView1->ColumnHeadersVisible = false;
 			this->dataGridView1->Location = System::Drawing::Point(885, 67);
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(157, 331);
@@ -134,6 +139,7 @@ namespace Gestionpoo {
 			this->dataGridView2->ColumnHeadersVisible = false;
 			this->dataGridView2->Location = System::Drawing::Point(694, 67);
 			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->ReadOnly = true;
 			this->dataGridView2->RowHeadersVisible = false;
 			this->dataGridView2->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView2->Size = System::Drawing::Size(176, 331);
@@ -160,6 +166,7 @@ namespace Gestionpoo {
 			this->dataGridView3->ColumnHeadersVisible = false;
 			this->dataGridView3->Location = System::Drawing::Point(487, 67);
 			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->ReadOnly = true;
 			this->dataGridView3->RowHeadersVisible = false;
 			this->dataGridView3->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView3->Size = System::Drawing::Size(188, 331);
@@ -184,6 +191,7 @@ namespace Gestionpoo {
 			this->debut->Name = L"debut";
 			this->debut->Size = System::Drawing::Size(200, 27);
 			this->debut->TabIndex = 4;
+			this->debut->ValueChanged += gcnew System::EventHandler(this, &Stat::Stat_Load);
 			// 
 			// lstclient
 			// 
@@ -193,6 +201,7 @@ namespace Gestionpoo {
 			this->lstclient->Name = L"lstclient";
 			this->lstclient->Size = System::Drawing::Size(239, 27);
 			this->lstclient->TabIndex = 5;
+			this->lstclient->SelectedIndexChanged += gcnew System::EventHandler(this, &Stat::Stat_Load);
 			// 
 			// label2
 			// 
@@ -225,6 +234,7 @@ namespace Gestionpoo {
 			this->fin->Name = L"fin";
 			this->fin->Size = System::Drawing::Size(200, 27);
 			this->fin->TabIndex = 8;
+			this->fin->ValueChanged += gcnew System::EventHandler(this, &Stat::Stat_Load);
 			// 
 			// label4
 			// 
@@ -232,7 +242,7 @@ namespace Gestionpoo {
 			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(160, 47);
+			this->label4->Location = System::Drawing::Point(184, 45);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(115, 19);
 			this->label4->TabIndex = 9;
@@ -265,9 +275,8 @@ namespace Gestionpoo {
 			// 
 			// chifreaffaire
 			// 
-			this->chifreaffaire->AutoSize = true;
 			this->chifreaffaire->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->chifreaffaire->Location = System::Drawing::Point(165, 125);
+			this->chifreaffaire->Location = System::Drawing::Point(184, 124);
 			this->chifreaffaire->Name = L"chifreaffaire";
 			this->chifreaffaire->Size = System::Drawing::Size(110, 19);
 			this->chifreaffaire->TabIndex = 12;
@@ -296,11 +305,24 @@ namespace Gestionpoo {
 			this->valeurstock->Text = L"Valeur du stock";
 			this->valeurstock->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// button1
+			// 
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Location = System::Drawing::Point(991, 12);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(30, 30);
+			this->button1->TabIndex = 15;
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Stat::Stat_Load);
+			// 
 			// Stat
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1054, 457);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->valeurstock);
 			this->Controls->Add(this->paniermoyen);
 			this->Controls->Add(this->chifreaffaire);
@@ -318,11 +340,9 @@ namespace Gestionpoo {
 			this->Controls->Add(this->dataGridView1);
 			this->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Stat";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"Stat";
+			this->Size = System::Drawing::Size(1054, 457);
 			this->Load += gcnew System::EventHandler(this, &Stat::Stat_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();

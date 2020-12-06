@@ -59,7 +59,7 @@ namespace Composant {
 		return ref;
 	}
 	System::String^ Commande::SELECT() {
-		return "select id_commande,  reference, date_emission,(select concat(nom_c,' ',prenom_c) from client where commande.id_client = client.id_client)as client,(select sum (prix_ht + (tva*prix_ht/100)) from choisir where choisir.id_commande = commande.id_commande) as prix_ttc from commande";
+		return "select id_commande,  reference, date_emission,(select concat(nom_c,' ',prenom_c) from client where commande.id_client = client.id_client)as client,(select sum ((prix_ht + ((tva-remise)*prix_ht/100))*choisir.quantite_article) from choisir where choisir.id_commande = commande.id_commande) as prix_ttc from commande";
 	}
 	System::String^ Commande::SELECTbyid() {
 		return "select id_commande, reference, date_emission,date_livraison,id_client,id_adresse_livraison,id_adresse_facturer from commande where id_commande = " + this->id_commande;

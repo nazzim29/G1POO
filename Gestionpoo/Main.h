@@ -2,6 +2,7 @@
 #include "Listepersonnel.h"
 #include "ListeStock.h"
 #include "Listeclient.h"
+#include "Stat.h"
 #include "Listecommande.h"
 namespace Gestionpoo {
 
@@ -41,6 +42,7 @@ namespace Gestionpoo {
 	private: Listeclient^ lstclient = gcnew Listeclient();
 	private: ListeStock^ lstarticle = gcnew ListeStock();
 	private: Listecommande^ lstcommande = gcnew Listecommande();
+	private: Stat^ stat = gcnew Stat();
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: System::Windows::Forms::Button^ button4;

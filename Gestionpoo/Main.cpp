@@ -80,6 +80,14 @@ System::Void Gestionpoo::Main::button4_Click(System::Object^ sender, System::Eve
 {
 	this->panel2->Visible = true;
 	this->panel2->Top = button4->Top;
+	if (panel3->Controls->Contains(stat)) {
+		stat->BringToFront();
+	}
+	else {
+		this->panel3->Controls->Add(stat);
+		stat->Dock = DockStyle::Fill;
+		stat->BringToFront();
+	}
 }
 
 System::Void Gestionpoo::Main::button9_Click(System::Object^ sender, System::EventArgs^ e)
